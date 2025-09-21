@@ -34,88 +34,97 @@ export default function HeroSection() {
           {/* Left Content */}
           <div className="space-y-8 text-left">
             <div className="space-y-6">
-              <div className="flex items-center space-x-2 mb-4">
+              <div className="flex items-center space-x-2 mb-4 animate-slide-in-up stagger-1">
                 <Sparkles className="h-5 w-5 text-primary animate-pulse" />
-                <span className="text-sm font-medium text-primary">Data Science • AI • Machine Learning</span>
+                <span className="text-sm font-medium text-primary animate-shimmer">Data Science • AI • Machine Learning</span>
               </div>
               
               <div className="space-y-4">
-                <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+                <h1 className="text-5xl md:text-7xl font-bold leading-tight animate-fade-in-scale stagger-2">
                   <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-pulse">
-                    Khan
+                    Rohit
                   </span>
                   <br />
-                  <span className="text-foreground">Hamiz</span>
+                  <span className="text-foreground animate-float">Mandwade</span>
                 </h1>
                 
                 <div className="space-y-3">
-                  <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
+                  <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed animate-slide-in-up stagger-2">
                     Computer Engineering student crafting 
-                    <span className="text-primary font-semibold"> impactful, data-driven solutions</span> 
+                    <span className="text-primary font-semibold animate-shimmer"> impactful, data-driven solutions</span> 
                     in a growth-focused environment
                   </p>
-                  <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
-                    Passionate about leveraging <span className="text-accent font-medium">AI</span>, 
-                    <span className="text-primary font-medium"> machine learning</span>, and 
-                    <span className="text-accent font-medium"> data analytics</span> to solve real-world problems
+                  <p className="text-lg text-muted-foreground max-w-xl leading-relaxed animate-slide-in-up stagger-3">
+                    Passionate about leveraging <span className="text-accent font-medium animate-pulse">AI</span>, 
+                    <span className="text-primary font-medium animate-pulse"> machine learning</span>, and 
+                    <span className="text-accent font-medium animate-pulse"> data analytics</span> to solve real-world problems
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-start gap-4">
+            <div className="flex flex-col sm:flex-row items-start gap-4 animate-slide-in-up stagger-3">
               <Button 
                 onClick={scrollToProjects}
                 size="lg"
-                className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="bg-gradient-to-r from-primary to-accent button-ripple magnetic-button animate-glow relative overflow-hidden group transition-all duration-500 shadow-lg hover:shadow-2xl hover:shadow-primary/20 border border-primary/30"
                 data-testid="button-view-projects"
               >
-                <Sparkles className="h-4 w-4 mr-2" />
-                View My Projects
+                <div className="absolute inset-0 bg-gradient-to-r from-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <Sparkles className="h-4 w-4 mr-2 relative z-10 animate-pulse" />
+                <span className="relative z-10">View My Projects</span>
               </Button>
               <Button 
                 variant="outline" 
                 onClick={scrollToContact}
                 size="lg"
-                className="border-primary/20 text-primary hover:bg-primary/5 transition-all duration-300"
+                className="border-primary/30 text-primary hover:bg-primary/10 magnetic-button button-ripple animate-shimmer relative overflow-hidden group transition-all duration-500 hover:border-primary/60"
                 data-testid="button-get-in-touch"
               >
-                Get in Touch
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <span className="relative z-10">Get in Touch</span>
               </Button>
             </div>
 
-            <div className="flex items-center space-x-6 pt-4">
+            <div className="flex items-center space-x-6 pt-4 animate-slide-in-up stagger-4">
               <Button 
                 size="icon" 
                 variant="ghost" 
-                className="hover:bg-primary/10 hover:text-primary transition-all duration-300 hover:scale-110"
+                className="hover:bg-primary/20 hover:text-primary magnetic-button animate-float relative overflow-hidden group transition-all duration-500 rounded-full border border-transparent hover:border-primary/30"
                 data-testid="link-github"
               >
-                <Github className="h-5 w-5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
+                <Github className="h-5 w-5 relative z-10 transition-transform duration-300 group-hover:scale-110" />
               </Button>
               <Button 
                 size="icon" 
                 variant="ghost" 
-                className="hover:bg-primary/10 hover:text-primary transition-all duration-300 hover:scale-110"
+                className="hover:bg-primary/20 hover:text-primary magnetic-button animate-float relative overflow-hidden group transition-all duration-500 rounded-full border border-transparent hover:border-primary/30"
+                style={{ animationDelay: '0.5s' }}
                 data-testid="link-linkedin"
               >
-                <Linkedin className="h-5 w-5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
+                <Linkedin className="h-5 w-5 relative z-10 transition-transform duration-300 group-hover:scale-110" />
               </Button>
               <Button 
                 size="icon" 
                 variant="ghost" 
-                className="hover:bg-primary/10 hover:text-primary transition-all duration-300 hover:scale-110"
+                className="hover:bg-primary/20 hover:text-primary magnetic-button animate-float relative overflow-hidden group transition-all duration-500 rounded-full border border-transparent hover:border-primary/30"
+                style={{ animationDelay: '1s' }}
                 data-testid="link-email"
               >
-                <Mail className="h-5 w-5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
+                <Mail className="h-5 w-5 relative z-10 transition-transform duration-300 group-hover:scale-110" />
               </Button>
               <Button 
                 size="icon" 
                 variant="ghost" 
-                className="hover:bg-accent/10 hover:text-accent transition-all duration-300 hover:scale-110"
+                className="hover:bg-accent/20 hover:text-accent magnetic-button animate-float relative overflow-hidden group transition-all duration-500 rounded-full border border-transparent hover:border-accent/30"
+                style={{ animationDelay: '1.5s' }}
                 data-testid="button-download-resume"
               >
-                <Download className="h-5 w-5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
+                <Download className="h-5 w-5 relative z-10 transition-transform duration-300 group-hover:scale-110" />
               </Button>
             </div>
           </div>

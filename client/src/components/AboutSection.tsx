@@ -11,8 +11,8 @@ export default function AboutSection() {
     },
     {
       icon: Code,
-      title: "Full-Stack Development",
-      description: "Proficient in modern web technologies and frameworks for building end-to-end applications"
+      title: "AI Development",
+      description: "Expert in building intelligent systems using modern frameworks and cutting-edge AI technologies"
     },
     {
       icon: Users,
@@ -56,15 +56,16 @@ export default function AboutSection() {
           {highlights.map((highlight, index) => (
             <Card 
               key={index} 
-              className="hover-elevate border-primary/10 bg-gradient-to-br from-card to-card/50 backdrop-blur-sm transition-all duration-300 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5" 
+              className={`hover-elevate border-primary/10 bg-gradient-to-br from-card to-card/50 backdrop-blur-sm transition-all duration-500 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5 magnetic-button animate-morph animate-fade-in-scale stagger-${index + 1} group`}
               data-testid={`card-highlight-${index}`}
             >
-              <CardContent className="p-6 text-center space-y-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mx-auto shadow-lg">
+              <CardContent className="p-6 text-center space-y-4 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mx-auto shadow-lg animate-float relative z-10 group-hover:scale-110 transition-transform duration-300" style={{ animationDelay: `${index * 0.5}s` }}>
                   <highlight.icon className="h-6 w-6 text-primary-foreground" />
                 </div>
-                <h3 className="font-semibold text-foreground">{highlight.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{highlight.description}</p>
+                <h3 className="font-semibold text-foreground relative z-10 group-hover:text-primary transition-colors duration-300">{highlight.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed relative z-10">{highlight.description}</p>
               </CardContent>
             </Card>
           ))}

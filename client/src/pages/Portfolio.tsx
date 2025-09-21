@@ -23,7 +23,7 @@ export default function Portfolio() {
       <footer className="bg-muted/50 border-t border-border py-8 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-muted-foreground">
-            © 2025 Khan Hamiz. Built with React, TypeScript, and Tailwind CSS.
+            © 2025 Rohit Mandwade. Built with React, TypeScript, and Tailwind CSS.
           </p>
           <p className="text-sm text-muted-foreground mt-2">
             Passionate about data science, AI, and building impactful solutions.

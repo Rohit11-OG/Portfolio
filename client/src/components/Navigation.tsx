@@ -32,18 +32,19 @@ export default function Navigation({ className = "" }: NavigationProps) {
     <nav className={`fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border ${className}`}>
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-xl font-bold">Khan Hamiz</div>
+          <div className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent animate-shimmer">Rohit Mandwade</div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
+            {navItems.map((item, index) => (
               <button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
-                className="text-muted-foreground hover:text-foreground transition-colors hover-elevate px-3 py-2 rounded-md"
+                className={`text-muted-foreground hover:text-primary transition-all duration-500 hover-elevate px-3 py-2 rounded-md magnetic-button relative overflow-hidden group animate-fade-in-scale stagger-${index + 1}`}
                 data-testid={`link-${item.label.toLowerCase()}`}
               >
-                {item.label}
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-md"></div>
+                <span className="relative z-10">{item.label}</span>
               </button>
             ))}
           </div>
@@ -53,9 +54,14 @@ export default function Navigation({ className = "" }: NavigationProps) {
               size="icon"
               variant="ghost"
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+              className="magnetic-button animate-float relative overflow-hidden group rounded-full border border-transparent hover:border-primary/30 transition-all duration-500"
               data-testid="button-theme-toggle"
             >
-              {theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
+              {theme === "light" ? 
+                <Moon className="h-4 w-4 relative z-10 transition-transform duration-300 group-hover:scale-110 animate-pulse" /> : 
+                <Sun className="h-4 w-4 relative z-10 transition-transform duration-300 group-hover:scale-110 animate-pulse" />
+              }
             </Button>
 
             {/* Mobile Menu Button */}

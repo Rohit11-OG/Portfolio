@@ -363,4 +363,116 @@
   .rotateX--90 {
     transform: rotateX(-90deg) translateZ(80px);
   }
+
+  /* Cool button animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(var(--primary), 0.3); }
+    50% { box-shadow: 0 0 30px rgba(var(--primary), 0.6), 0 0 40px rgba(var(--accent), 0.3); }
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+  
+  @keyframes ripple {
+    0% { transform: scale(0); opacity: 0.8; }
+    100% { transform: scale(2); opacity: 0; }
+  }
+  
+  @keyframes slideInUp {
+    0% { 
+      transform: translateY(50px); 
+      opacity: 0; 
+    }
+    100% { 
+      transform: translateY(0); 
+      opacity: 1; 
+    }
+  }
+  
+  @keyframes fadeInScale {
+    0% { 
+      transform: scale(0.8); 
+      opacity: 0; 
+    }
+    100% { 
+      transform: scale(1); 
+      opacity: 1; 
+    }
+  }
+  
+  @keyframes morphBackground {
+    0%, 100% { border-radius: 0.5rem; }
+    50% { border-radius: 2rem; }
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+  
+  .animate-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+  
+  .animate-slide-in-up {
+    animation: slideInUp 0.8s ease-out forwards;
+  }
+  
+  .animate-fade-in-scale {
+    animation: fadeInScale 0.6s ease-out forwards;
+  }
+  
+  .animate-morph {
+    animation: morphBackground 4s ease-in-out infinite;
+  }
+  
+  .button-ripple {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .button-ripple::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+  
+  .button-ripple:active::before {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .magnetic-button {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .magnetic-button:hover {
+    transform: translateY(-4px) scale(1.05);
+  }
+  
+  /* Staggered animation delays */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
 }
