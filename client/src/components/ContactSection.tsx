@@ -70,8 +70,12 @@ export default function ContactSection() {
     <section id="contact" className="py-24 px-6 bg-muted/30">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Let's Connect</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-wave">
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              Let's Connect
+            </span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-slide-in-up stagger-1">
             I'm always interested in new opportunities, collaborations, and discussions about 
             data science, AI, and technology. Let's build something amazing together!
           </p>
@@ -79,15 +83,16 @@ export default function ContactSection() {
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <Card className="hover-elevate">
-            <CardHeader>
-              <CardTitle className="text-2xl">Send a Message</CardTitle>
+          <Card className="hover-elevate magnetic-button transition-all duration-500 border-primary/20 bg-gradient-to-br from-card to-card/80 backdrop-blur-sm hover:shadow-lg hover:shadow-primary/5 animate-slide-in-left stagger-2">
+            <CardHeader className="relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5 opacity-50"></div>
+              <CardTitle className="text-2xl relative z-10 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent animate-slide-in-up">Send a Message</CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="relative z-10">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="name" className="text-sm font-medium mb-2 block">
+                  <div className="animate-slide-in-left stagger-1">
+                    <label htmlFor="name" className="text-sm font-medium mb-2 block text-primary">
                       Your Name
                     </label>
                     <Input
@@ -97,11 +102,12 @@ export default function ContactSection() {
                       onChange={handleInputChange}
                       placeholder="Enter your name"
                       required
+                      className="magnetic-button transition-all duration-300 border-primary/20 focus:border-primary hover:border-primary/40"
                       data-testid="input-name"
                     />
                   </div>
-                  <div>
-                    <label htmlFor="email" className="text-sm font-medium mb-2 block">
+                  <div className="animate-slide-in-right stagger-1">
+                    <label htmlFor="email" className="text-sm font-medium mb-2 block text-primary">
                       Email Address
                     </label>
                     <Input
@@ -112,12 +118,13 @@ export default function ContactSection() {
                       onChange={handleInputChange}
                       placeholder="Enter your email"
                       required
+                      className="magnetic-button transition-all duration-300 border-primary/20 focus:border-primary hover:border-primary/40"
                       data-testid="input-email"
                     />
                   </div>
                 </div>
-                <div>
-                  <label htmlFor="subject" className="text-sm font-medium mb-2 block">
+                <div className="animate-slide-in-up stagger-2">
+                  <label htmlFor="subject" className="text-sm font-medium mb-2 block text-primary">
                     Subject
                   </label>
                   <Input
@@ -127,11 +134,12 @@ export default function ContactSection() {
                     onChange={handleInputChange}
                     placeholder="What's this about?"
                     required
+                    className="magnetic-button transition-all duration-300 border-primary/20 focus:border-primary hover:border-primary/40"
                     data-testid="input-subject"
                   />
                 </div>
-                <div>
-                  <label htmlFor="message" className="text-sm font-medium mb-2 block">
+                <div className="animate-slide-in-up stagger-3">
+                  <label htmlFor="message" className="text-sm font-medium mb-2 block text-primary">
                     Message
                   </label>
                   <Textarea
@@ -142,11 +150,17 @@ export default function ContactSection() {
                     placeholder="Tell me about your project or opportunity..."
                     rows={6}
                     required
+                    className="magnetic-button transition-all duration-300 border-primary/20 focus:border-primary hover:border-primary/40"
                     data-testid="textarea-message"
                   />
                 </div>
-                <Button type="submit" size="lg" className="w-full" data-testid="button-send-message">
-                  <Send className="h-4 w-4 mr-2" />
+                <Button 
+                  type="submit" 
+                  size="lg" 
+                  className="w-full magnetic-button button-ripple bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-500 shadow-lg hover:shadow-xl animate-glow animate-slide-in-up stagger-4" 
+                  data-testid="button-send-message"
+                >
+                  <Send className="h-4 w-4 mr-2 animate-pulse" />
                   Send Message
                 </Button>
               </form>
@@ -155,40 +169,42 @@ export default function ContactSection() {
 
           {/* Contact Information */}
           <div className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-2xl">Get in Touch</CardTitle>
+            <Card className="magnetic-button transition-all duration-500 border-accent/20 bg-gradient-to-br from-card to-card/80 backdrop-blur-sm hover:shadow-lg hover:shadow-accent/5 animate-slide-in-right stagger-2">
+              <CardHeader className="relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-primary/5 opacity-50"></div>
+                <CardTitle className="text-2xl relative z-10 bg-gradient-to-r from-foreground to-accent bg-clip-text text-transparent animate-slide-in-up">Get in Touch</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6">
+              <CardContent className="space-y-6 relative z-10">
                 <div className="space-y-4">
                   {contactInfo.map((contact, index) => (
-                    <div key={index} className="flex items-center space-x-3" data-testid={`contact-${contact.label.toLowerCase()}`}>
-                      <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                        <contact.icon className="h-5 w-5 text-primary" />
+                    <div key={index} className={`flex items-center space-x-3 animate-slide-in-right stagger-${index + 1} hover-elevate p-2 rounded-lg transition-all duration-300`} data-testid={`contact-${contact.label.toLowerCase()}`}>
+                      <div className="w-10 h-10 bg-gradient-to-br from-accent to-primary rounded-lg flex items-center justify-center animate-float" style={{ animationDelay: `${index * 0.5}s` }}>
+                        <contact.icon className="h-5 w-5 text-primary-foreground" />
                       </div>
                       <div>
-                        <p className="font-medium">{contact.label}</p>
+                        <p className="font-medium text-foreground">{contact.label}</p>
                         <p className="text-muted-foreground">{contact.value}</p>
                       </div>
                     </div>
                   ))}
                 </div>
 
-                <div className="pt-6 border-t border-border">
-                  <h3 className="font-semibold mb-4">Social Media</h3>
+                <div className="pt-6 border-t border-border animate-slide-in-up stagger-4">
+                  <h3 className="font-semibold mb-4 text-accent">Social Media</h3>
                   <div className="space-y-3">
                     {socialLinks.map((social, index) => (
                       <a
                         key={index}
                         href={social.href}
-                        className="flex items-center space-x-3 hover-elevate p-3 rounded-lg transition-colors"
+                        className={`flex items-center space-x-3 hover-elevate p-3 rounded-lg transition-all duration-500 magnetic-button animate-slide-in-left stagger-${index + 5} group relative overflow-hidden`}
                         data-testid={`link-social-${social.label.toLowerCase()}`}
                       >
-                        <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                          <social.icon className="h-5 w-5 text-primary" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-accent/10 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
+                        <div className="w-10 h-10 bg-gradient-to-br from-accent to-primary rounded-lg flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-300">
+                          <social.icon className="h-5 w-5 text-primary-foreground" />
                         </div>
-                        <div>
-                          <p className="font-medium">{social.label}</p>
+                        <div className="relative z-10">
+                          <p className="font-medium group-hover:text-accent transition-colors duration-300">{social.label}</p>
                           <p className="text-sm text-muted-foreground">{social.description}</p>
                         </div>
                       </a>
@@ -198,10 +214,11 @@ export default function ContactSection() {
               </CardContent>
             </Card>
 
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="font-semibold mb-4">I'm interested in...</h3>
-                <div className="flex flex-wrap gap-2">
+            <Card className="magnetic-button transition-all duration-500 border-primary/20 bg-gradient-to-br from-card to-card/80 backdrop-blur-sm hover:shadow-lg hover:shadow-primary/5 animate-slide-in-right stagger-6">
+              <CardContent className="p-6 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-50"></div>
+                <h3 className="font-semibold mb-4 text-primary relative z-10 animate-slide-in-up">I'm interested in...</h3>
+                <div className="flex flex-wrap gap-2 relative z-10">
                   {[
                     "Data Science Roles",
                     "AI/ML Projects",
@@ -212,12 +229,17 @@ export default function ContactSection() {
                     "Open Source",
                     "Networking"
                   ].map((interest, index) => (
-                    <Badge key={index} variant="secondary" data-testid={`badge-interest-${interest.toLowerCase().replace(/\s+/g, '-')}`}>
+                    <Badge 
+                      key={index} 
+                      variant="secondary" 
+                      className={`animate-bounce-in magnetic-button hover:bg-primary/20 hover:text-primary transition-all duration-300 stagger-${index + 1}`}
+                      data-testid={`badge-interest-${interest.toLowerCase().replace(/\s+/g, '-')}`}
+                    >
                       {interest}
                     </Badge>
                   ))}
                 </div>
-                <p className="text-sm text-muted-foreground mt-4">
+                <p className="text-sm text-muted-foreground mt-4 relative z-10 animate-slide-in-up stagger-8">
                   Whether you have a project in mind, want to discuss technology trends, 
                   or explore collaboration opportunities, I'd love to hear from you!
                 </p>

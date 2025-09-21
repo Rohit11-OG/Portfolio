@@ -30,28 +30,39 @@ export default function SkillsSection() {
     <section id="skills" className="py-24 px-6 bg-muted/30">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Skills & Technologies</h2>
-          <p className="text-xl text-muted-foreground">
-            Technical expertise across data science, machine learning, and full-stack development
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-flip-in-y">
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              Skills & Technologies
+            </span>
+          </h2>
+          <p className="text-xl text-muted-foreground animate-typewriter stagger-1">
+            Technical expertise across data science, machine learning, and AI development
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {skillCategories.map((category, index) => (
-            <Card key={index} className="hover-elevate" data-testid={`card-skills-${category.title.toLowerCase().replace(/\s+/g, '-')}`}>
-              <CardHeader className="text-center pb-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <category.icon className="h-6 w-6 text-primary" />
+            <Card 
+              key={index} 
+              className={`hover-elevate magnetic-button transition-all duration-500 border-primary/10 bg-gradient-to-br from-card via-card/95 to-card/80 backdrop-blur-sm hover:shadow-lg hover:shadow-primary/5 animate-zoom-in stagger-${index + 2} group relative overflow-hidden`}
+              data-testid={`card-skills-${category.title.toLowerCase().replace(/\s+/g, '-')}`}
+            >
+              {/* Background gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <CardHeader className="text-center pb-4 relative z-10">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mx-auto mb-2 animate-float group-hover:scale-110 transition-transform duration-300" style={{ animationDelay: `${index * 0.3}s` }}>
+                  <category.icon className="h-6 w-6 text-primary-foreground" />
                 </div>
-                <CardTitle className="text-lg">{category.title}</CardTitle>
+                <CardTitle className="text-lg group-hover:text-primary transition-colors duration-300">{category.title}</CardTitle>
               </CardHeader>
-              <CardContent className="pt-0">
+              <CardContent className="pt-0 relative z-10">
                 <div className="flex flex-wrap gap-2 justify-center">
                   {category.skills.map((skill, skillIndex) => (
                     <Badge 
                       key={skillIndex} 
                       variant="secondary" 
-                      className="text-xs"
+                      className={`text-xs animate-slide-in-up magnetic-button hover:bg-primary/20 hover:text-primary transition-all duration-300 stagger-${skillIndex + 1}`}
                       data-testid={`badge-skill-${skill.toLowerCase().replace(/\s+/g, '-')}`}
                     >
                       {skill}

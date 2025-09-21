@@ -77,16 +77,16 @@ export default function AboutSection() {
               <div className="space-y-4">
                 <h3 className="text-2xl font-semibold">About Me</h3>
                 <div className="space-y-4 text-muted-foreground">
-                  <p>
+                  <p className="animate-slide-in-left stagger-1">
                     I'm a Computer Engineering student deeply involved in AI/ML, Data Analytics, 
                     and Data Science. My journey combines rigorous academic study with hands-on 
                     experience in building dashboards, predictive models, and AI-powered applications.
                   </p>
-                  <p>
+                  <p className="animate-slide-in-left stagger-2">
                     As Vice President of COSA and Technical Head of the Coding Club, I've led 
                     numerous technical initiatives and mentored fellow students in emerging technologies.
                   </p>
-                  <p>
+                  <p className="animate-slide-in-left stagger-3">
                     My curiosity drives me to explore new technologies and frameworks, always 
                     seeking to bridge the gap between theoretical knowledge and practical implementation 
                     to solve real-world problems.
@@ -95,16 +95,25 @@ export default function AboutSection() {
               </div>
               
               <div className="space-y-4">
-                <h3 className="text-2xl font-semibold">Core Technologies</h3>
+                <h3 className="text-2xl font-semibold animate-slide-in-right stagger-1">
+                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    Core Technologies
+                  </span>
+                </h3>
                 <div className="flex flex-wrap gap-2">
                   {tools.map((tool, index) => (
-                    <Badge key={index} variant="secondary" data-testid={`badge-tool-${tool.toLowerCase()}`}>
+                    <Badge 
+                      key={index} 
+                      variant="secondary" 
+                      className={`animate-bounce-in magnetic-button hover:bg-primary/20 hover:text-primary transition-all duration-300 stagger-${index + 1}`}
+                      data-testid={`badge-tool-${tool.toLowerCase()}`}
+                    >
                       {tool}
                     </Badge>
                   ))}
                 </div>
                 <div className="pt-4">
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-muted-foreground animate-slide-in-right stagger-4">
                     Experienced in building end-to-end data pipelines, creating interactive 
                     dashboards, and developing machine learning models that provide actionable 
                     insights for decision-making.
