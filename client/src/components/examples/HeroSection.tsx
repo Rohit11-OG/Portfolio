@@ -4,7 +4,9 @@ import { ThemeProvider } from '../ThemeProvider'
 export default function HeroSectionExample() {
   return (
     <ThemeProvider>
-      <HeroSection />
+      <div className="dark">
+        <HeroSection />
+      </div>
     </ThemeProvider>
   )
 }

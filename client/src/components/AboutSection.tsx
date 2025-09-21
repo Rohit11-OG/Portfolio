@@ -31,26 +31,40 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="about" className="py-24 px-6 relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 right-10 w-40 h-40 bg-primary/3 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-32 left-20 w-32 h-32 bg-accent/3 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="max-w-6xl mx-auto relative">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Who I Am</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              Who I Am
+            </span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             A Computer Engineering student with a passion for data science and analytics, 
             combining academic excellence with practical, project-based learning to create 
-            impactful solutions.
+            <span className="text-primary font-medium"> impactful solutions</span>.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {highlights.map((highlight, index) => (
-            <Card key={index} className="hover-elevate" data-testid={`card-highlight-${index}`}>
+            <Card 
+              key={index} 
+              className="hover-elevate border-primary/10 bg-gradient-to-br from-card to-card/50 backdrop-blur-sm transition-all duration-300 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5" 
+              data-testid={`card-highlight-${index}`}
+            >
               <CardContent className="p-6 text-center space-y-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto">
-                  <highlight.icon className="h-6 w-6 text-primary" />
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mx-auto shadow-lg">
+                  <highlight.icon className="h-6 w-6 text-primary-foreground" />
                 </div>
-                <h3 className="font-semibold">{highlight.title}</h3>
-                <p className="text-sm text-muted-foreground">{highlight.description}</p>
+                <h3 className="font-semibold text-foreground">{highlight.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{highlight.description}</p>
               </CardContent>
             </Card>
           ))}
