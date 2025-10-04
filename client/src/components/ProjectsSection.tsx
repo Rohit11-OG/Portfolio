@@ -9,11 +9,11 @@ export default function ProjectsSection() {
 
   const projects = [
     {
-      title: "Fitness & Nutrition Recommender",
-      description: "Web app generating personalized diet and workout plans via Random Forest algorithm, helping users achieve their health goals through data-driven recommendations.",
-      technologies: ["Python", "Random Forest", "Flask", "React", "SQLite"],
-      category: "Machine Learning",
-      features: ["Personalized meal plans", "Workout recommendations", "Progress tracking", "Nutritional analysis"]
+      title: "Vidgo.AI - AI Reel Generator",
+      description: "Created a scalable and efficient platform that automates video reel generation through AI-powered voice synthesis, multimedia processing, and streamlined backend infrastructure.",
+      technologies: ["Python", "ElevenLabs", "Flask", "ffmpeg,", "SQLite"],
+      category: "Artificial Intelligence (AI) Integration",
+      features: ["Automated Multimedia Processing", "Advanced Text-to-Speech", "User-Uploaded Media Support", "Automated Audio Integration"]
     },
     {
       title: "YouTube to 3D Mind Map",
@@ -23,18 +23,18 @@ export default function ProjectsSection() {
       features: ["Video transcript extraction", "3D visualization", "Interactive navigation", "Content summarization"]
     },
     {
-      title: "Customer Segmentation Marketing Analysis",
-      description: "Performs customer segmentation using unsupervised machine learning to identify distinct customer groups for targeted marketing strategies.",
-      technologies: ["Python", "K-Means", "scikit-learn", "Pandas", "Matplotlib"],
-      category: "Data Analytics",
-      features: ["RFM analysis", "Clustering algorithms", "Visual insights", "Marketing recommendations"]
+      title: "Automated Image Caption Generator",
+      description: "Automatically generates descriptive captions for images using deep learning, combining computer vision and natural language processing.",
+      technologies: ["Python", "Flask", "TensorFlow", "OpenCV", "Rest API"],
+      category: "AI / Computer Vision / NLP",
+      features: ["Image Upload Interface", "Batch Processing", "Download/Share Options", "RESTful API Integration"]
     },
     {
-      title: "Missing Person Matcher",
-      description: "Facial recognition tool for identifying missing persons in disaster response scenarios, using computer vision to match faces against databases.",
-      technologies: ["Python", "OpenCV", "TensorFlow", "Face Recognition", "Flask"],
-      category: "Computer Vision",
-      features: ["Real-time face detection", "Database matching", "Confidence scoring", "Alert system"]
+      title: "Dynamic Price Prediction for e-Commerce",
+      description: "Built an ML-based application that predicts future e-commerce prices using historical trends and market factors, helping users optimize buying and selling decisions through dynamic pricing insights.",
+      technologies: ["Python", "Scikit-learn", "Flask", "BeautifulSoup", "Matplotlib", "Pandas"],
+      category: "Machine Learning",
+      features: ["Historical Data Scraping", "Price Prediction Engine", "API Access", "User Alerts & Recommendations"]
     },
     {
       title: "Job Resume Classifier",
@@ -43,13 +43,6 @@ export default function ProjectsSection() {
       category: "Natural Language Processing",
       features: ["Text preprocessing", "Feature extraction", "Multi-class classification", "Confidence metrics"]
     },
-    {
-      title: "ATM Cash Predictor",
-      description: "Predicts cash shortages using historical data for proactive bank alerts, optimizing cash management and reducing customer inconvenience.",
-      technologies: ["Python", "Time Series", "Prophet", "Pandas", "Plotly"],
-      category: "Predictive Analytics",
-      features: ["Time series forecasting", "Anomaly detection", "Alert system", "Dashboard visualization"]
-    }
   ];
 
   const nextProject = () => {
@@ -70,7 +63,7 @@ export default function ProjectsSection() {
             </span>
           </h2>
           <p className="text-xl text-muted-foreground animate-slide-in-up stagger-1">
-            Showcase of data science, machine learning, and AI projects solving real-world problems
+            Showcase of Data science, Machine learning, and AI projects solving real-world problems
           </p>
         </div>
 
@@ -128,15 +121,6 @@ export default function ProjectsSection() {
                 >
                   <Github className="h-4 w-4 mr-2 animate-pulse" />
                   View Code
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  className="magnetic-button button-ripple border-accent/30 hover:border-accent hover:bg-accent/10 transition-all duration-300"
-                  data-testid="button-live-demo"
-                >
-                  <ExternalLink className="h-4 w-4 mr-2 animate-pulse" />
-                  Live Demo
                 </Button>
               </div>
             </CardContent>
@@ -221,15 +205,17 @@ export default function ProjectsSection() {
         </div>
 
         <div className="text-center animate-slide-in-up stagger-5">
-          <Button 
-            variant="outline" 
-            size="lg" 
-            className="magnetic-button button-ripple border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-500 animate-glow"
-            data-testid="button-view-all-projects"
-          >
-            <Github className="h-4 w-4 mr-2 animate-pulse" />
-            Explore All Projects on GitHub
-          </Button>
+          <a href="https://github.com/Rohit11-OG" target="_blank" rel="noopener noreferrer">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="magnetic-button button-ripple border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-500 animate-glow"
+              data-testid="button-view-all-projects"
+            >
+              <Github className="h-4 w-4 mr-2 animate-pulse" />
+              Explore All Projects on GitHub
+            </Button>
+          </a>
         </div>
       </div>
     </section>

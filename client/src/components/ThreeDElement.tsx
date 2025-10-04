@@ -38,7 +38,7 @@ export default function ThreeDElement() {
       >
         {/* Front Face */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-lg opacity-90 transform translateZ-20 flex items-center justify-center">
-          <div className="text-white font-bold text-lg">AI</div>
+          <div className="text-white font-bold text-lg">Welcome</div>
         </div>
         
         {/* Back Face */}
@@ -58,7 +58,7 @@ export default function ThreeDElement() {
         
         {/* Top Face */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/70 to-accent/70 rounded-lg opacity-90 transform rotateX-90 translateZ-20 flex items-center justify-center">
-          <div className="text-white font-bold text-lg">CV</div>
+          <div className="text-white font-bold text-lg">AI</div>
         </div>
         
         {/* Bottom Face */}

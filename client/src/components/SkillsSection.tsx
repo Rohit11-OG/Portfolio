@@ -7,22 +7,22 @@ export default function SkillsSection() {
     {
       icon: Code,
       title: "Programming Languages",
-      skills: ["Python", "JavaScript", "Java", "SQL", "R", "C++", "TypeScript"]
+      skills: ["Python", "SQL", "R", "Java", "C++", "HTML", "CSS"]
     },
     {
       icon: Brain,
       title: "Frameworks & Libraries",
-      skills: ["scikit-learn", "TensorFlow", "Pandas", "NumPy", "Flask", "React", "Node.js", "Express"]
+      skills: ["scikit-learn", "TensorFlow", "Pandas", "NumPy", "Flask", "Django"]
     },
     {
       icon: Database,
       title: "Databases & Analytics",
-      skills: ["MySQL", "PostgreSQL", "MongoDB", "Power BI", "Tableau", "Apache Spark", "Elasticsearch"]
+      skills: ["MySQL", "MongoDB", "Power BI", "Tableau"]
     },
     {
       icon: Wrench,
       title: "Tools & Technologies",
-      skills: ["Git", "Docker", "AWS", "Jupyter", "VS Code", "Linux", "APIs", "Postman"]
+      skills: ["Git", "Docker", "AWS", "Jupyter", "VS Code", "APIs", "Excel"]
     }
   ];
 
@@ -36,7 +36,7 @@ export default function SkillsSection() {
             </span>
           </h2>
           <p className="text-xl text-muted-foreground animate-typewriter stagger-1">
-            Technical expertise across data science, machine learning, and AI development
+            Technical expertise across Data Science, Machine Learning and AI development
           </p>
         </div>
 

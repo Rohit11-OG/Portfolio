@@ -10,14 +10,14 @@ export default function AboutSection() {
       description: "Strong foundation in Python, machine learning, and AI with hands-on experience in predictive modeling"
     },
     {
-      icon: Code,
-      title: "AI Development",
-      description: "Expert in building intelligent systems using modern frameworks and cutting-edge AI technologies"
+      icon: Users,
+      title: "Video/Photo Editing",
+      description: "Proficient in Video and Photoshop Applications, creating engaging content for various platforms"
     },
     {
       icon: Users,
       title: "Leadership",
-      description: "Vice President of COSA and Technical Head of the Coding Club, leading innovative projects"
+      description: "Picturing Director of COSA and Member of Young Indians, leading innovative projects"
     },
     {
       icon: Trophy,
@@ -27,7 +27,7 @@ export default function AboutSection() {
   ];
 
   const tools = [
-    "Python", "Power BI", "SQL", "scikit-learn", "Flask", "Pandas", "TensorFlow", "Git"
+    "Python", "Power BI", "SQL", "scikit-learn", "Flask", "Pandas", "TensorFlow", "Git", "Excel", "Tableau"
   ];
 
   return (
@@ -83,7 +83,7 @@ export default function AboutSection() {
                     experience in building dashboards, predictive models, and AI-powered applications.
                   </p>
                   <p className="animate-slide-in-left stagger-2">
-                    As Vice President of COSA and Technical Head of the Coding Club, I've led 
+                    As Picturing Director of COSA and Member of Young Indians, I've led 
                     numerous technical initiatives and mentored fellow students in emerging technologies.
                   </p>
                   <p className="animate-slide-in-left stagger-3">

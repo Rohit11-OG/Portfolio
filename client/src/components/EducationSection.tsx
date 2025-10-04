@@ -8,17 +8,17 @@ export default function EducationSection() {
       period: "2022 - 2026",
       degree: "Bachelor of Engineering in Computer Engineering",
       institution: "Guru Gobind Singh College Of Engineering And Research Centre, Nashik",
-      achievement: "Current SGPA: 9.48",
-      description: "Deeply involved in AI/ML, Data Analytics, Data Science, and full-stack development subjects and projects.",
+      achievement: "Current SGPA: 8.09",
+      description: "Deeply involved in AI/ML, Data Science, and full-stack development subjects and projects.",
       highlights: ["Machine Learning", "Data Structures", "Database Systems", "Software Engineering", "AI & Neural Networks"]
     },
     {
       period: "2021 - 2022",
       degree: "HSC (Class 12)",
-      institution: "Universal College of Commerce and Science",
-      achievement: "Scored 72.33% in PCM",
+      institution: "H.P.T. ARTS & R.Y.K. SCIENCE COLLEGE, Nashik",
+      achievement: "Scored 63.83% in PCM",
       description: "Strong foundation in Physics, Chemistry, and Mathematics with focus on analytical thinking.",
-      highlights: ["Physics", "Chemistry", "Mathematics", "Computer Science"]
+      highlights: ["Physics", "Chemistry", "Mathematics"]
     }
   ];
 
@@ -32,7 +32,7 @@ export default function EducationSection() {
             </span>
           </h2>
           <p className="text-xl text-muted-foreground animate-slide-in-up stagger-1">
-            Academic journey focused on computer engineering and data science
+            Academic journey focused on Computer Engineering and Science
           </p>
         </div>
 

@@ -51,13 +51,13 @@ export default function HeroSection() {
                 <div className="space-y-3">
                   <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed animate-slide-in-up stagger-2">
                     Computer Engineering student crafting 
-                    <span className="text-primary font-semibold animate-shimmer"> impactful, data-driven solutions</span> 
+                    <span className="text-primary font-semibold animate-shimmer"> impactful, data-driven solutions </span> 
                     in a growth-focused environment
                   </p>
                   <p className="text-lg text-muted-foreground max-w-xl leading-relaxed animate-slide-in-up stagger-3">
                     Passionate about leveraging <span className="text-accent font-medium animate-pulse">AI</span>, 
-                    <span className="text-primary font-medium animate-pulse"> machine learning</span>, and 
-                    <span className="text-accent font-medium animate-pulse"> data analytics</span> to solve real-world problems
+                    <span className="text-primary font-medium animate-pulse"> Machine Learning</span>, and 
+                    <span className="text-accent font-medium animate-pulse"> Data Science</span> to solve Real-world problems
                   </p>
                 </div>
               </div>
@@ -72,7 +72,7 @@ export default function HeroSection() {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <Sparkles className="h-4 w-4 mr-2 relative z-10 animate-pulse" />
-                <span className="relative z-10">View My Projects</span>
+                <span className="relative z-10">My Projects</span>
               </Button>
               <Button 
                 variant="outline" 
@@ -87,45 +87,41 @@ export default function HeroSection() {
             </div>
 
             <div className="flex items-center space-x-6 pt-4 animate-slide-in-up stagger-4">
-              <Button 
-                size="icon" 
-                variant="ghost" 
-                className="hover:bg-primary/20 hover:text-primary magnetic-button animate-float relative overflow-hidden group transition-all duration-500 rounded-full border border-transparent hover:border-primary/30"
-                data-testid="link-github"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
-                <Github className="h-5 w-5 relative z-10 transition-transform duration-300 group-hover:scale-110" />
-              </Button>
-              <Button 
-                size="icon" 
-                variant="ghost" 
-                className="hover:bg-primary/20 hover:text-primary magnetic-button animate-float relative overflow-hidden group transition-all duration-500 rounded-full border border-transparent hover:border-primary/30"
-                style={{ animationDelay: '0.5s' }}
-                data-testid="link-linkedin"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
-                <Linkedin className="h-5 w-5 relative z-10 transition-transform duration-300 group-hover:scale-110" />
-              </Button>
-              <Button 
-                size="icon" 
-                variant="ghost" 
-                className="hover:bg-primary/20 hover:text-primary magnetic-button animate-float relative overflow-hidden group transition-all duration-500 rounded-full border border-transparent hover:border-primary/30"
-                style={{ animationDelay: '1s' }}
-                data-testid="link-email"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
-                <Mail className="h-5 w-5 relative z-10 transition-transform duration-300 group-hover:scale-110" />
-              </Button>
-              <Button 
-                size="icon" 
-                variant="ghost" 
-                className="hover:bg-accent/20 hover:text-accent magnetic-button animate-float relative overflow-hidden group transition-all duration-500 rounded-full border border-transparent hover:border-accent/30"
-                style={{ animationDelay: '1.5s' }}
-                data-testid="button-download-resume"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
-                <Download className="h-5 w-5 relative z-10 transition-transform duration-300 group-hover:scale-110" />
-              </Button>
+              <a href="https://github.com/Rohit11-OG" target="_blank" rel="noopener noreferrer">
+                <Button 
+                  size="icon" 
+                  variant="ghost" 
+                  className="hover:bg-primary/20 hover:text-primary magnetic-button animate-float relative overflow-hidden group transition-all duration-500 rounded-full border border-transparent hover:border-primary/30"
+                  data-testid="link-github"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
+                  <Github className="h-5 w-5 relative z-10 transition-transform duration-300 group-hover:scale-110" />
+                </Button>
+              </a>
+              <a href="https://www.linkedin.com/in/rohit-mandwade-805979319" target="_blank" rel="noopener noreferrer">
+                <Button 
+                  size="icon" 
+                  variant="ghost" 
+                  className="hover:bg-primary/20 hover:text-primary magnetic-button animate-float relative overflow-hidden group transition-all duration-500 rounded-full border border-transparent hover:border-primary/30"
+                  style={{ animationDelay: '0.5s' }}
+                  data-testid="link-linkedin"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
+                  <Linkedin className="h-5 w-5 relative z-10 transition-transform duration-300 group-hover:scale-110" />
+                </Button>
+              </a>
+              <a href="mailto:rohitm7298@gmail.com" target="_blank" rel="noopener noreferrer">
+                <Button 
+                  size="icon" 
+                  variant="ghost" 
+                  className="hover:bg-primary/20 hover:text-primary magnetic-button animate-float relative overflow-hidden group transition-all duration-500 rounded-full border border-transparent hover:border-primary/30"
+                  style={{ animationDelay: '1s' }}
+                  data-testid="link-email"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
+                  <Mail className="h-5 w-5 relative z-10 transition-transform duration-300 group-hover:scale-110" />
+                </Button>
+              </a>
             </div>
           </div>
 

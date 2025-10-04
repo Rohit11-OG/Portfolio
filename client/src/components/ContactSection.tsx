@@ -31,40 +31,23 @@ export default function ContactSection() {
     {
       icon: Github,
       label: "GitHub",
-      href: "#",
+      href: "https://github.com/Rohit11-OG",
       description: "Check out my repositories"
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "#",
+      href: "https://www.linkedin.com/in/rohit-mandwade-805979319",
       description: "Connect professionally"
     },
     {
       icon: Mail,
       label: "Email",
-      href: "mailto:khan.hamiz@example.com",
-      description: "khan.hamiz@example.com"
+      href: "mailto:rohitm7298@gmail.com",
+      description: "rohitm7298@gmail.com"
     }
   ];
 
-  const contactInfo = [
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "Nashik, Maharashtra, India"
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+91 XXXXX XXXXX"
-    },
-    {
-      icon: Mail,
-      label: "Email",
-      value: "khan.hamiz@example.com"
-    }
-  ];
 
   return (
     <section id="contact" className="py-24 px-6 bg-muted/30">
@@ -76,8 +59,8 @@ export default function ContactSection() {
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-slide-in-up stagger-1">
-            I'm always interested in new opportunities, collaborations, and discussions about 
-            data science, AI, and technology. Let's build something amazing together!
+            I'm always Interested in New Opportunities, Collaborations, and Discussions about 
+            Data Science, AI, and Technology. Let's build something amazing together!
           </p>
         </div>
 
@@ -175,22 +158,7 @@ export default function ContactSection() {
                 <CardTitle className="text-2xl relative z-10 bg-gradient-to-r from-foreground to-accent bg-clip-text text-transparent animate-slide-in-up">Get in Touch</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6 relative z-10">
-                <div className="space-y-4">
-                  {contactInfo.map((contact, index) => (
-                    <div key={index} className={`flex items-center space-x-3 animate-slide-in-right stagger-${index + 1} hover-elevate p-2 rounded-lg transition-all duration-300`} data-testid={`contact-${contact.label.toLowerCase()}`}>
-                      <div className="w-10 h-10 bg-gradient-to-br from-accent to-primary rounded-lg flex items-center justify-center animate-float" style={{ animationDelay: `${index * 0.5}s` }}>
-                        <contact.icon className="h-5 w-5 text-primary-foreground" />
-                      </div>
-                      <div>
-                        <p className="font-medium text-foreground">{contact.label}</p>
-                        <p className="text-muted-foreground">{contact.value}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
                 <div className="pt-6 border-t border-border animate-slide-in-up stagger-4">
-                  <h3 className="font-semibold mb-4 text-accent">Social Media</h3>
                   <div className="space-y-3">
                     {socialLinks.map((social, index) => (
                       <a
@@ -225,7 +193,7 @@ export default function ContactSection() {
                     "Research Collaboration",
                     "Internship Opportunities",
                     "Freelance Work",
-                    "Tech Mentoring",
+                    
                     "Open Source",
                     "Networking"
                   ].map((interest, index) => (

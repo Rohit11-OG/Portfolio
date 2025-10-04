@@ -5,46 +5,46 @@ import { Calendar, Building, MapPin, Briefcase } from "lucide-react";
 export default function ExperienceSection() {
   const experiences = [
     {
-      period: "Feb 2025 – Present",
-      title: "Data Science Intern",
-      organization: "TechCorp Analytics",
-      location: "Remote",
-      description: "Collaborate with U.S. based steel detailing firm to automate ETL workflows and streamline data pipelines for shop drawing projects.",
+      period: "DEC 2024 – JAN 2025",
+      title: "INTERN AT INDIAN AIR FORCE – 11 BRD",
+      organization: "Hindustan Aeronautics Limited",
+      location: "Nashik",
+      description: "An Indian state-owned Aerospace and Defense company headquartered in Bengaluru, involved in the design, development, manufacture, repair, overhaul, and servicing of Aircraft",
       achievements: [
-        "Built Power BI dashboards reducing report generation time by 60%",
-        "Wrote SQL queries to manage drawing metadata and submittals",
-        "Developed Python scripts for automated data validation",
-        "Supported cross-functional teams with actionable insights"
+        "Managed aircraft parts data and streamlined inventory tracking for improved efficiency.",
+        "Supported aviation maintenance operations through optimized data handling.",
+        "Automated data analysis and reporting in Excel using advanced formulas and coding.",
+        "Applied programming logic to real-world defense engineering problems with aircraft aggregates."
       ],
-      technologies: ["Python", "Power BI", "SQL", "ETL", "Data Pipelines"]
+      technologies: ["Excel", "Python", "Data Analysis", "Data Handling"]
     },
     {
-      period: "Aug 2024 – Jan 2025",
-      title: "AI Research Assistant",
-      organization: "University Research Lab",
-      location: "Nashik",
-      description: "Conducted research on machine learning applications in predictive analytics and developed AI-powered tools for data visualization.",
+      period: "June 2025 – July 2025",
+      title: "Elements of AI",
+      organization: "University of Helsinki & MinnaLearn",
+      location: "Remote",
+      description: "Completed the \"Elements of AI\" online internship, gaining foundational skills in artificial intelligence, machine learning, and their practical applications.",
       achievements: [
         "Implemented Random Forest models for fitness recommendation systems",
-        "Created 3D mind mapping tools using NLP for video transcript analysis",
-        "Developed customer segmentation models using unsupervised learning",
-        "Published research on facial recognition for disaster response"
+        "Demonstrated proficiency in core AI concepts and their ethical implications",
+        
+        "Strengthened analytical abilities in problem-solving with AI"
       ],
-      technologies: ["Python", "TensorFlow", "scikit-learn", "NLP", "Computer Vision"]
+      technologies: ["Python", "Machine Learning principles", "Artificial Intelligence concepts", "Online learning platforms (MinnaLearn MOOC)"]
     },
     {
-      period: "Jun 2024 – Aug 2024",
-      title: "Software Development Intern",
-      organization: "InnovateTech Solutions",
-      location: "Mumbai",
-      description: "Developed full-stack web applications and contributed to machine learning projects for client solutions.",
+      period: "July – September 2025",
+      title: "Data Science Master Virtual Internship",
+      organization: "Altair Engineering Inc.",
+      location: "Remote",
+      description: "Completed a 10-week virtual internship focused on mastering key data science concepts and practices, promoting nation-building through skill development.",
       achievements: [
-        "Built resume classification system using NLP techniques",
-        "Developed ATM cash prediction model using time series analysis",
-        "Created responsive web interfaces using React and Node.js",
-        "Collaborated with senior developers on production deployments"
+        "Successfully completed the internship with an Outstanding grade (O: 90-100%)",
+        "Recognized for excellent performance",
+        "Gained hands-on experience with real-world data science challenges"
+        
       ],
-      technologies: ["React", "Node.js", "MongoDB", "Machine Learning", "NLP"]
+      technologies: ["Data Science", "Python", "R", "Machine Learning", "Altair (industry support)"]
     }
   ];
 
@@ -58,7 +58,7 @@ export default function ExperienceSection() {
             </span>
           </h2>
           <p className="text-xl text-muted-foreground animate-slide-in-up stagger-1">
-            Professional journey in data science, AI, and software development
+            Professional journey in Data science, AI, and Software development
           </p>
         </div>
 
