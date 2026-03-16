@@ -1,6 +1,6 @@
 import { useRef, useMemo, Suspense } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Dodecahedron, Text, Sphere, Trail, Float, OrbitControls } from '@react-three/drei';
+import { Dodecahedron, Html, Sphere, Float, OrbitControls } from '@react-three/drei';
 import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import * as THREE from 'three';
 
@@ -8,16 +8,14 @@ function GlowingNode() {
   const meshRef = useRef<THREE.Mesh>(null);
   const ringRef = useRef<THREE.Group>(null);
   
-  // Custom material for the central node (glassy/neon)
-  const material = useMemo(() => new THREE.MeshPhysicalMaterial({
+  // Custom material for the central node
+  const material = useMemo(() => new THREE.MeshStandardMaterial({
     color: '#8b5cf6', // Primary Purple
     emissive: '#6366f1', // Accent Indigo
-    emissiveIntensity: 0.5,
-    roughness: 0.1,
+    emissiveIntensity: 0.8,
+    roughness: 0.2,
     metalness: 0.8,
-    transmission: 0.9, // glass effect
-    thickness: 1,
-    clearcoat: 1,
+    wireframe: true,
   }), []);
 
   // Animate the core rotation
@@ -69,7 +67,7 @@ function GlowingNode() {
 
 // Tech Stack Floating Labels
 function OrbitingText({ text, radius, offset, color }: { text: string; radius: number; offset: number; color: string }) {
-  const ref = useRef<THREE.Mesh>(null);
+  const ref = useRef<THREE.Group>(null);
   
   useFrame((state) => {
     if (!ref.current) return;
@@ -77,21 +75,20 @@ function OrbitingText({ text, radius, offset, color }: { text: string; radius: n
     const time = state.clock.elapsedTime * 0.5 + offset;
     ref.current.position.x = Math.cos(time) * radius;
     ref.current.position.z = Math.sin(time) * radius;
-    // Always face camera
-    ref.current.quaternion.copy(state.camera.quaternion);
   });
 
   return (
-    <Text
-      ref={ref}
-      fontSize={0.4}
-      color={color}
-      fontWeight="bold"
-      outlineWidth={0.02}
-      outlineColor="#000000"
-    >
-      {text}
-    </Text>
+    <group ref={ref}>
+      <Html center style={{ 
+        color: color, 
+        fontWeight: 'bold', 
+        fontSize: '1.2rem',
+        textShadow: `0 0 10px ${color}, 0 0 20px ${color}`,
+        pointerEvents: 'none'
+      }}>
+        {text}
+      </Html>
+    </group>
   );
 }
 
