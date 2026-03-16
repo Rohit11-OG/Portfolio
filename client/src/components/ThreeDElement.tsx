@@ -1,97 +1,152 @@
-import { useState, useEffect } from "react";
+import { useRef, useMemo } from 'react';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { Dodecahedron, Text, Sphere, Trail, Float, OrbitControls } from '@react-three/drei';
+import { EffectComposer, Bloom } from '@react-three/postprocessing';
+import * as THREE from 'three';
 
-export default function ThreeDElement() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
+function GlowingNode() {
+  const meshRef = useRef<THREE.Mesh>(null);
+  const ringRef = useRef<THREE.Group>(null);
+  
+  // Custom material for the central node (glassy/neon)
+  const material = useMemo(() => new THREE.MeshPhysicalMaterial({
+    color: '#8b5cf6', // Primary Purple
+    emissive: '#6366f1', // Accent Indigo
+    emissiveIntensity: 0.5,
+    roughness: 0.1,
+    metalness: 0.8,
+    transmission: 0.9, // glass effect
+    thickness: 1,
+    clearcoat: 1,
+  }), []);
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = document.getElementById('three-d-container')?.getBoundingClientRect();
-      if (rect) {
-        const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
-        const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
-        setMousePosition({ x: x * 15, y: y * 15 });
-      }
-    };
-
-    const container = document.getElementById('three-d-container');
-    if (container) {
-      container.addEventListener('mousemove', handleMouseMove);
-      return () => container.removeEventListener('mousemove', handleMouseMove);
+  // Animate the core rotation
+  useFrame((state) => {
+    if (meshRef.current) {
+      meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.3) * 0.2;
+      meshRef.current.rotation.y += 0.01;
     }
-  }, []);
+    if (ringRef.current) {
+      ringRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.5) * 0.3;
+      ringRef.current.rotation.y -= 0.005;
+      ringRef.current.rotation.z += 0.005;
+    }
+  });
 
   return (
+    <group>
+      {/* Central Dodecahedron (AI Node) */}
+      <Float speed={2} rotationIntensity={1.5} floatIntensity={2}>
+        <Dodecahedron ref={meshRef} args={[1.5, 0]} material={material}>
+          {/* Inner glowing sphere */}
+          <Sphere args={[0.8, 32, 32]}>
+            <meshBasicMaterial color="#a78bfa" />
+          </Sphere>
+        </Dodecahedron>
+      </Float>
+
+      {/* Orbiting Tech Stack Labels */}
+      <group ref={ringRef}>
+        <OrbitingText text="AI" radius={2.8} offset={0} color="#8b5cf6" />
+        <OrbitingText text="ML" radius={2.8} offset={Math.PI / 2} color="#6366f1" />
+        <OrbitingText text="DS" radius={2.8} offset={Math.PI} color="#3b82f6" />
+        <OrbitingText text="DL" radius={2.8} offset={(Math.PI * 3) / 2} color="#a855f7" />
+        
+        {/* Outer decorative ring */}
+        <mesh rotation-x={Math.PI / 2}>
+          <torusGeometry args={[3.5, 0.02, 16, 100]} />
+          <meshBasicMaterial color="#6366f1" transparent opacity={0.2} />
+        </mesh>
+        
+        <mesh rotation-y={Math.PI / 4} rotation-x={Math.PI / 2}>
+          <torusGeometry args={[3.2, 0.01, 16, 100]} />
+          <meshBasicMaterial color="#8b5cf6" transparent opacity={0.3} />
+        </mesh>
+      </group>
+    </group>
+  );
+}
+
+// Tech Stack Floating Labels
+function OrbitingText({ text, radius, offset, color }: { text: string; radius: number; offset: number; color: string }) {
+  const ref = useRef<THREE.Mesh>(null);
+  
+  useFrame((state) => {
+    if (!ref.current) return;
+    // Calculate orbit position
+    const time = state.clock.elapsedTime * 0.5 + offset;
+    ref.current.position.x = Math.cos(time) * radius;
+    ref.current.position.z = Math.sin(time) * radius;
+    // Always face camera
+    ref.current.quaternion.copy(state.camera.quaternion);
+  });
+
+  return (
+    <Text
+      ref={ref}
+      fontSize={0.4}
+      color={color}
+      fontWeight="bold"
+      outlineWidth={0.02}
+      outlineColor="#000000"
+    >
+      {text}
+    </Text>
+  );
+}
+
+// Mouse Parallax Effect Wrapper
+function SceneControls() {
+  const { camera, size } = useThree();
+  const mouse = useRef({ x: 0, y: 0 });
+
+  useFrame((state) => {
+    // Smooth camera interpolation based on mouse pointer
+    const targetX = (state.pointer.x * size.width) / 1000;
+    const targetY = (state.pointer.y * size.height) / 1000;
+    
+    camera.position.x += (targetX - camera.position.x) * 0.05;
+    camera.position.y += (targetY - camera.position.y) * 0.05;
+    camera.lookAt(0, 0, 0);
+  });
+
+  return null;
+}
+
+export default function ThreeDElement() {
+  return (
     <div 
-      id="three-d-container"
-      className="relative w-full h-full flex items-center justify-center perspective-1000"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      className="w-full h-full cursor-grab active:cursor-grabbing"
       data-testid="three-d-element"
     >
-      {/* Main 3D Cube */}
-      <div 
-        className="relative w-40 h-40 transform-style-preserve-3d transition-transform duration-300 ease-out"
-        style={{
-          transform: `rotateX(${mousePosition.y}deg) rotateY(${mousePosition.x}deg) ${isHovered ? 'scale(1.1)' : 'scale(1)'}`
-        }}
-      >
-        {/* Front Face */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-lg opacity-90 transform translateZ-20 flex items-center justify-center">
-          <div className="text-white font-bold text-lg">Welcome</div>
-        </div>
+      <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
+        {/* Ambient and directional lighting for the glass material */}
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[10, 10, 5]} intensity={1.5} color="#8b5cf6" />
+        <directionalLight position={[-10, -10, -5]} intensity={1} color="#3b82f6" />
+        <pointLight position={[0, 0, 0]} intensity={2} color="#a855f7" />
         
-        {/* Back Face */}
-        <div className="absolute inset-0 bg-gradient-to-br from-accent to-primary rounded-lg opacity-90 transform translateZ--20 rotateY-180 flex items-center justify-center">
-          <div className="text-white font-bold text-lg">ML</div>
-        </div>
+        <SceneControls />
+        <GlowingNode />
         
-        {/* Right Face */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-accent/80 rounded-lg opacity-90 transform rotateY-90 translateZ-20 flex items-center justify-center">
-          <div className="text-white font-bold text-lg">DS</div>
-        </div>
+        {/* OrbitControls allows the user to manually drag around the object */}
+        <OrbitControls 
+          enableZoom={false} 
+          enablePan={false}
+          autoRotate={false}
+          maxPolarAngle={Math.PI / 1.5}
+          minPolarAngle={Math.PI / 3}
+        />
         
-        {/* Left Face */}
-        <div className="absolute inset-0 bg-gradient-to-br from-accent/80 to-primary/80 rounded-lg opacity-90 transform rotateY--90 translateZ-20 flex items-center justify-center">
-          <div className="text-white font-bold text-lg">DL</div>
-        </div>
-        
-        {/* Top Face */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/70 to-accent/70 rounded-lg opacity-90 transform rotateX-90 translateZ-20 flex items-center justify-center">
-          <div className="text-white font-bold text-lg">AI</div>
-        </div>
-        
-        {/* Bottom Face */}
-        <div className="absolute inset-0 bg-gradient-to-br from-accent/70 to-primary/70 rounded-lg opacity-90 transform rotateX--90 translateZ-20 flex items-center justify-center">
-          <div className="text-white font-bold text-lg">NLP</div>
-        </div>
-      </div>
-
-      {/* Floating particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(12)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 bg-primary/30 rounded-full animate-bounce"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`
-            }}
+        {/* Post-processing Glowing Effect */}
+        <EffectComposer enableNormalPass={false}>
+          <Bloom 
+            luminanceThreshold={0.2} 
+            mipmapBlur 
+            intensity={1.2} 
           />
-        ))}
-      </div>
-
-      {/* Orbiting rings */}
-      <div 
-        className="absolute w-60 h-60 border border-primary/20 rounded-full animate-spin"
-        style={{ animationDuration: '20s' }}
-      />
-      <div 
-        className="absolute w-80 h-80 border border-accent/20 rounded-full animate-spin"
-        style={{ animationDuration: '30s', animationDirection: 'reverse' }}
-      />
+        </EffectComposer>
+      </Canvas>
     </div>
   );
 }
