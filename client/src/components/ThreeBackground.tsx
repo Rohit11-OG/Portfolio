@@ -1,4 +1,4 @@
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
@@ -49,7 +49,9 @@ export default function ThreeBackground() {
   return (
     <div className="fixed inset-0 w-full h-full pointer-events-none" style={{ zIndex: -1 }}>
       <Canvas camera={{ position: [0, 0, 15] }}>
-        <ParticleField />
+        <Suspense fallback={null}>
+          <ParticleField />
+        </Suspense>
       </Canvas>
     </div>
   );

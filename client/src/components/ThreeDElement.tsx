@@ -1,4 +1,4 @@
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, Suspense } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Dodecahedron, Text, Sphere, Trail, Float, OrbitControls } from '@react-three/drei';
 import { EffectComposer, Bloom } from '@react-three/postprocessing';
@@ -120,32 +120,34 @@ export default function ThreeDElement() {
       data-testid="three-d-element"
     >
       <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
-        {/* Ambient and directional lighting for the glass material */}
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[10, 10, 5]} intensity={1.5} color="#8b5cf6" />
-        <directionalLight position={[-10, -10, -5]} intensity={1} color="#3b82f6" />
-        <pointLight position={[0, 0, 0]} intensity={2} color="#a855f7" />
-        
-        <SceneControls />
-        <GlowingNode />
-        
-        {/* OrbitControls allows the user to manually drag around the object */}
-        <OrbitControls 
-          enableZoom={false} 
-          enablePan={false}
-          autoRotate={false}
-          maxPolarAngle={Math.PI / 1.5}
-          minPolarAngle={Math.PI / 3}
-        />
-        
-        {/* Post-processing Glowing Effect */}
-        <EffectComposer enableNormalPass={false}>
-          <Bloom 
-            luminanceThreshold={0.2} 
-            mipmapBlur 
-            intensity={1.2} 
+        <Suspense fallback={null}>
+          {/* Ambient and directional lighting for the glass material */}
+          <ambientLight intensity={0.5} />
+          <directionalLight position={[10, 10, 5]} intensity={1.5} color="#8b5cf6" />
+          <directionalLight position={[-10, -10, -5]} intensity={1} color="#3b82f6" />
+          <pointLight position={[0, 0, 0]} intensity={2} color="#a855f7" />
+          
+          <SceneControls />
+          <GlowingNode />
+          
+          {/* OrbitControls allows the user to manually drag around the object */}
+          <OrbitControls 
+            enableZoom={false} 
+            enablePan={false}
+            autoRotate={false}
+            maxPolarAngle={Math.PI / 1.5}
+            minPolarAngle={Math.PI / 3}
           />
-        </EffectComposer>
+          
+          {/* Post-processing Glowing Effect */}
+          <EffectComposer enableNormalPass={false}>
+            <Bloom 
+              luminanceThreshold={0.2} 
+              mipmapBlur 
+              intensity={1.2} 
+            />
+          </EffectComposer>
+        </Suspense>
       </Canvas>
     </div>
   );
