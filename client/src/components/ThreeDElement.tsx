@@ -47,7 +47,7 @@ function GlowingNode() {
       <group ref={ringRef}>
         <OrbitingText text="AI" radius={2.8} offset={0} color="#8b5cf6" />
         <OrbitingText text="ML" radius={2.8} offset={Math.PI / 2} color="#6366f1" />
-        <OrbitingText text="DS" radius={2.8} offset={Math.PI} color="#3b82f6" />
+        <OrbitingText text="CV" radius={2.8} offset={Math.PI} color="#3b82f6" />
         <OrbitingText text="DL" radius={2.8} offset={(Math.PI * 3) / 2} color="#a855f7" />
         
         {/* Outer decorative ring */}
