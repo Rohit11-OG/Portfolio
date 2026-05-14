@@ -79,6 +79,7 @@ export default function ProjectsSection() {
       technologies: ["Python", "Flask", "AIML", "LLM Fallback", "REST API"],
       category: "AI / NLP",
       githubUrl: "https://github.com/Rohit11-OG/Nexus.AI",
+      liveUrl: "https://nexus-ai-chi-two.vercel.app/",
       features: [
         "Classic AIML rule engine + generative LLM fallback in single pipeline",
         "Wide topic spread: greetings, jokes, science, riddles, emotions, philosophy",
@@ -209,19 +210,35 @@ export default function ProjectsSection() {
 
               <div className="flex justify-center space-x-4 animate-slide-in-up stagger-4">
                 {projects[currentProject].githubUrl && (
-                  <a 
-                    href={projects[currentProject].githubUrl} 
-                    target="_blank" 
+                  <a
+                    href={projects[currentProject].githubUrl}
+                    target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
+                    <Button
+                      variant="outline"
+                      size="sm"
                       className="magnetic-button button-ripple border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-300"
                       data-testid="button-view-code"
                     >
                       <Github className="h-4 w-4 mr-2 animate-pulse" />
                       View Code
+                    </Button>
+                  </a>
+                )}
+                {(projects[currentProject] as any).liveUrl && (
+                  <a
+                    href={(projects[currentProject] as any).liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button
+                      size="sm"
+                      className="magnetic-button button-ripple bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-300"
+                      data-testid="button-live-demo"
+                    >
+                      <ExternalLink className="h-4 w-4 mr-2 animate-pulse" />
+                      Live Demo
                     </Button>
                   </a>
                 )}
