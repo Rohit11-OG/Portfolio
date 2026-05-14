@@ -38,14 +38,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
           "Authorization": `Bearer ${NVIDIA_API_KEY}`,
         },
         body: JSON.stringify({
-          model: "nvidia/nemotron-3-super-120b-a12b",
+          model: "meta/llama-3.1-8b-instruct",
           messages: [
             { role: "system", content: PROFILE_CONTEXT },
             ...recentMessages
           ],
           temperature: 0.7,
           top_p: 0.9,
-          max_tokens: 512,
+          max_tokens: 256,
           stream: true,
         }),
       });
