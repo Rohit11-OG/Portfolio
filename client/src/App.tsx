@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import Portfolio from "@/pages/Portfolio";
 import NotFound from "@/pages/not-found";
 import FloatingElements from "@/components/FloatingElements";
+import ChatBot from "@/components/ChatBot";
 
 function Router() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <FloatingElements />
           <Toaster />
           <Router />
+          <ChatBot />
         </ThemeProvider>
       </TooltipProvider>
     </QueryClientProvider>

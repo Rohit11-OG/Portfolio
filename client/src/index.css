@@ -747,4 +747,24 @@
   .depth-layer-child:hover {
     transform: translateZ(50px);
   }
+
+  /* CSS Particle Background Animation */
+  @keyframes particleDrift {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+      opacity: var(--particle-opacity, 0.3);
+    }
+    25% {
+      transform: translate(30px, -40px) scale(1.2);
+      opacity: calc(var(--particle-opacity, 0.3) * 1.5);
+    }
+    50% {
+      transform: translate(-20px, -80px) scale(0.8);
+      opacity: var(--particle-opacity, 0.3);
+    }
+    75% {
+      transform: translate(40px, -30px) scale(1.1);
+      opacity: calc(var(--particle-opacity, 0.3) * 0.7);
+    }
+  }
 }

@@ -55,7 +55,7 @@ function GlowingNode() {
           <torusGeometry args={[3.5, 0.02, 16, 100]} />
           <meshBasicMaterial color="#6366f1" transparent opacity={0.2} />
         </mesh>
-        
+
         <mesh rotation-y={Math.PI / 4} rotation-x={Math.PI / 2}>
           <torusGeometry args={[3.2, 0.01, 16, 100]} />
           <meshBasicMaterial color="#8b5cf6" transparent opacity={0.3} />

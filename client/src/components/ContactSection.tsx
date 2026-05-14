@@ -45,6 +45,12 @@ export default function ContactSection() {
       label: "Email",
       href: "mailto:rohitm7298@gmail.com",
       description: "rohitm7298@gmail.com"
+    },
+    {
+      icon: Phone,
+      label: "Phone",
+      href: "tel:+919322168290",
+      description: "+91 9322168290"
     }
   ];
 

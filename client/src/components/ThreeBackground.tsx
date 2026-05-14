@@ -5,7 +5,7 @@ import * as THREE from 'three';
 
 function ParticleField() {
   const ref = useRef<THREE.Points>(null);
-  
+
   // Generate random particles within a sphere
   const sphere = useMemo(() => {
     const p = new Float32Array(3000 * 3);
@@ -13,7 +13,7 @@ function ParticleField() {
         const radius = 25 * Math.cbrt(Math.random());
         const theta = Math.random() * 2 * Math.PI;
         const phi = Math.acos(2 * Math.random() - 1);
-        
+
         p[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
         p[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
         p[i * 3 + 2] = radius * Math.cos(phi);
