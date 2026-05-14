@@ -9,19 +9,6 @@ export default function ProjectsSection() {
 
   const projects = [
     {
-      title: "Robot Monitoring System",
-      description: "AI-powered real-time robot monitoring using YOLO11. Tracks motion, classifies states, and alerts on stops with 95% accuracy at 30+ FPS for industrial robotics.",
-      technologies: ["Python", "YOLO11", "OpenCV", "Intel RealSense", "Computer Vision"],
-      category: "Computer Vision / Robotics",
-      githubUrl: "https://github.com/Rohit11-OG/Robot-Monetoring-System",
-      features: [
-        "Real-time state classification: MOVING, STATIONARY, SPRAYING, ROBOT LOST",
-        "Intel RealSense + webcam support with 3D depth perception",
-        "95% accuracy at 30+ FPS, custom YOLO11 training pipeline",
-        "Intelligent alerts and CSV logging for movement analytics"
-      ]
-    },
-    {
       title: "CivicMate - AI Civic Assistant",
       description: "Flask backend with Groq + Llama Vision for legal document simplification. Multi-modal AI, Hindi/English support, privacy-first with zero data storage.",
       technologies: ["Python", "Flask", "Groq API", "Llama 4 Scout Vision", "NLP"],
@@ -114,32 +101,6 @@ export default function ProjectsSection() {
         "Modular package with unit-tested BlinkTracker core logic"
       ]
     },
-    {
-      title: "Robot-Marks - ArUco Marker Tracker",
-      description: "Real-time ArUco marker tracking with Intel RealSense. Classifies motion as MOVING / STATIONARY / MARKER LOST with velocity, FPS, and trail overlay.",
-      technologies: ["Python", "OpenCV ArUco", "Intel RealSense", "pyrealsense2"],
-      category: "Computer Vision / Robotics",
-      githubUrl: "https://github.com/Rohit11-OG/Robot-Marks",
-      features: [
-        "Real-time ArUco marker detection and trajectory tracking",
-        "Motion state classification with smoothed velocity estimation",
-        "On-screen overlay: FPS, marker ID, coordinates, motion trail",
-        "Built-in marker generator (single marker or printable sheet)"
-      ]
-    },
-    {
-      title: "PLY File Merge",
-      description: "Python toolkit for merging and transforming PLY point cloud files using Open3D. Manual rotate, auto-align, registration-based merging, and rotation transforms.",
-      technologies: ["Python", "Open3D", "NumPy", "Point Clouds"],
-      category: "3D / Point Cloud Processing",
-      githubUrl: "https://github.com/Rohit11-OG/PLY-File-Merge",
-      features: [
-        "Interactive manual rotation for point cloud alignment",
-        "Automatic align-and-merge across multiple PLY files",
-        "Point cloud registration-based merging pipeline",
-        "Configurable rotation transforms with merged output directory"
-      ]
-    }
   ];
 
   const nextProject = () => {
