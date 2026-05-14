@@ -10,67 +10,132 @@ export default function ProjectsSection() {
   const projects = [
     {
       title: "Robot Monitoring System",
-      description: "AI-powered real-time robot monitoring system using YOLO11 for motion tracking with 95% accuracy at 30+ FPS for industrial robotics applications.",
+      description: "AI-powered real-time robot monitoring using YOLO11. Tracks motion, classifies states, and alerts on stops with 95% accuracy at 30+ FPS for industrial robotics.",
       technologies: ["Python", "YOLO11", "OpenCV", "Intel RealSense", "Computer Vision"],
       category: "Computer Vision / Robotics",
-      githubUrl: "https://github.com/Rohit11-OG/Robot-Monetoring-System.git",
+      githubUrl: "https://github.com/Rohit11-OG/Robot-Monetoring-System",
       features: [
-        "Real-time robot state classification: MOVING, STATIONARY, ROBOT LOST",
-        "Intel RealSense camera for 3D depth perception and ArUco marker detection",
-        "95% accuracy with 30+ FPS performance",
+        "Real-time state classification: MOVING, STATIONARY, SPRAYING, ROBOT LOST",
+        "Intel RealSense + webcam support with 3D depth perception",
+        "95% accuracy at 30+ FPS, custom YOLO11 training pipeline",
         "Intelligent alerts and CSV logging for movement analytics"
       ]
     },
     {
       title: "CivicMate - AI Civic Assistant",
-      description: "Flask REST API with responsive glassmorphism UI and multi-modal AI integration. Privacy-first architecture with in-memory processing and zero data storage.",
-      technologies: ["Python", "Flask", "Groq API", "Llama Vision", "NLP"],
+      description: "Flask backend with Groq + Llama Vision for legal document simplification. Multi-modal AI, Hindi/English support, privacy-first with zero data storage.",
+      technologies: ["Python", "Flask", "Groq API", "Llama 4 Scout Vision", "NLP"],
       category: "AI / NLP / Legal Tech",
-      githubUrl: "https://github.com/Rohit11-OG/Civic-AI-Copilot.git",
+      githubUrl: "https://github.com/Rohit11-OG/Civic-AI-Copilot",
       features: [
-        "Legal Document Analyzer with Llama 4 Scout 17B Vision for Hindi/English PDFs/images",
-        "Risk classification with 3-tier severity system (HIGH/MEDIUM/LOW)",
-        "Automated draft reply generator and RTI application templates",
-        "Sustainability module with carbon footprint calculator and eco-friendly recommendations"
+        "Legal Document Analyzer with Llama 4 Scout 17B Vision (Hindi/English PDFs + images)",
+        "3-tier risk classification (HIGH/MEDIUM/LOW) for legal severity",
+        "Auto-generated reply drafts and RTI application templates",
+        "Sustainability module with carbon footprint calculator"
       ]
     },
     {
       title: "STL-Based YOLOv8 Detection System",
-      description: "YOLOv8 object detection for robotic painting achieving 97.7% mAP50, 100% precision, 97.8% recall with ROS2 integration for Dobot Nova5 robotic arm.",
-      technologies: ["Python", "YOLOv8", "ROS2", "Intel RealSense", "PyTorch"],
+      description: "YOLOv8 object detection for robotic arm painting on Dobot Nova5. 97.7% mAP50, 100% precision, 97.8% recall with full ROS 2 Humble integration.",
+      technologies: ["Python", "YOLOv8", "ROS 2", "Intel RealSense D435i", "PyTorch"],
       category: "Computer Vision / Robotics",
-      githubUrl: "https://github.com/Rohit11-OG/Object-Detection-Using-STL-FIle.git",
+      githubUrl: "https://github.com/Rohit11-OG/Object-Detection-Using-STL-FIle",
       features: [
-        "97.7% mAP50, 100% precision, 97.8% recall with real-time detection at 30+ FPS",
-        "Synthetic training pipeline from STL/OBJ 3D models combined with real camera data",
-        "ROS2 Humble package with custom messages for real-time detection publishing",
-        "Production-ready features: auto-reconnect, hot reload for industrial painting workflows"
+        "97.7% mAP50 / 100% precision / 97.8% recall at 30+ FPS real-time",
+        "Synthetic training pipeline from STL/OBJ 3D models + real camera data",
+        "ROS 2 Humble package with custom messages for detection publishing",
+        "Industrial features: auto-reconnect, hot reload, graceful shutdown"
+      ]
+    },
+    {
+      title: "STL Vision PathPlanner",
+      description: "End-to-end pipeline: 3D STL model → synthetic training → YOLOv8 detection → robot motion path. Six path strategies for inspection, painting, polishing, pick-and-place.",
+      technologies: ["Python", "YOLOv8", "OpenCV", "ROS 2", "Open3D"],
+      category: "Computer Vision / Robotics",
+      githubUrl: "https://github.com/Rohit11-OG/STL-Vision-Pathplanner",
+      features: [
+        "Zero manual labeling — auto-generates 500+ synthetic images from STL",
+        "6 path strategies: Contour, Spiral, Zigzag, Surface, Grid, Approach",
+        "Real-time visualization with depth-aware path planning",
+        "ROS 2-ready output for direct robotic arm execution"
       ]
     },
     {
       title: "Vidgo.AI - AI Reel Generator",
-      description: "Scalable platform that automates video reel generation through AI-powered voice synthesis, multimedia processing, and streamlined backend infrastructure.",
-      technologies: ["Python", "Flask", "ffmpeg", "ElevenLabs", "SQLite"],
+      description: "Upload photos, get AI-narrated reels. Gemini writes scripts, ElevenLabs synthesizes voice, FFmpeg renders cinematic transitions and Ken Burns effects.",
+      technologies: ["Python", "Flask", "Gemini AI", "ElevenLabs", "FFmpeg"],
       category: "AI / Multimedia",
-      githubUrl: "https://github.com/Rohit11-OG/Vidgo.AI.git",
+      githubUrl: "https://github.com/Rohit11-OG/Vidgo.AI",
       features: [
-        "Seamless combination of user-uploaded photos with auto-generated audio",
-        "Intuitive web interface for simplified reel creation",
-        "Robust, scalable architecture for end-to-end automated video generation",
-        "Fully automated pipeline supporting real-time content synthesis and rendering"
+        "Gemini AI auto-writes narration scripts from uploaded photos",
+        "12 free voices + ElevenLabs premium voice synthesis",
+        "13 cinematic transitions and Ken Burns effects via FFmpeg",
+        "Background music mixing and end-to-end automated rendering"
       ]
     },
     {
-      title: "Real-Time Driver Drowsiness Detection",
-      description: "Facial landmark analysis system using OpenCV and Dlib to detect driver drowsiness through eye aspect ratio (EAR) computation and real-time alerts.",
-      technologies: ["Python", "OpenCV", "Dlib", "Computer Vision", "Real-time Processing"],
-      category: "Computer Vision / Safety",
-      githubUrl: null,
+      title: "Nexus.AI - Hybrid Chatbot Engine",
+      description: "Flask chatbot fusing deterministic AIML rule engine with LLM fallback. Mini-games, analytics dashboard, session memory, and web UI in one architecture.",
+      technologies: ["Python", "Flask", "AIML", "LLM Fallback", "REST API"],
+      category: "AI / NLP",
+      githubUrl: "https://github.com/Rohit11-OG/Nexus.AI",
       features: [
-        "Real-time webcam feed processing with 68-point facial landmark detection",
-        "Eye Aspect Ratio (EAR) computation for active, drowsy, and sleeping state detection",
-        "Frame-based state machine for tracking consecutive blinks and drowsiness patterns",
-        "On-screen alerts when EAR falls below configurable thresholds"
+        "Classic AIML rule engine + generative LLM fallback in single pipeline",
+        "Wide topic spread: greetings, jokes, science, riddles, emotions, philosophy",
+        "Built-in analytics dashboard for usage visibility",
+        "Centralized config loading and Flask REST endpoints"
+      ]
+    },
+    {
+      title: "VisionGuard - CV Bug Detection Agent",
+      description: "Static + runtime bug detection CLI tuned for Python computer vision projects. Targets YOLO, Intel RealSense, MegaPose, OpenCV, PyTorch, and PyQt5 codebases.",
+      technologies: ["Python", "Static Analysis", "libcst", "ruff", "OpenTelemetry"],
+      category: "Developer Tools / CV",
+      githubUrl: "https://github.com/Rohit11-OG/VisionGuard",
+      features: [
+        "One-line install on Windows/Linux/macOS via PowerShell or curl",
+        "Watch mode auto-scans on every file save",
+        "CV-aware checks for YOLO, RealSense, MegaPose, OpenCV, PyTorch, PyQt5",
+        "Numbered markdown reports written to .agent/reports/"
+      ]
+    },
+    {
+      title: "Lid-Logic - Eye Blink Detection",
+      description: "Real-time eye blink detection and session analytics using OpenCV + dlib facial landmarks. Modular Python package with CLI, configurable thresholds, unit tests.",
+      technologies: ["Python", "OpenCV", "dlib", "pyproject.toml", "pytest"],
+      category: "Computer Vision / Safety",
+      githubUrl: "https://github.com/Rohit11-OG/Lid-Logic",
+      features: [
+        "68-point facial landmark detection with Eye Aspect Ratio (EAR) computation",
+        "Configurable CLI: camera index, EAR threshold, frame width, output dir",
+        "Per-blink CSV logging plus session summary writer",
+        "Modular package with unit-tested BlinkTracker core logic"
+      ]
+    },
+    {
+      title: "Robot-Marks - ArUco Marker Tracker",
+      description: "Real-time ArUco marker tracking with Intel RealSense. Classifies motion as MOVING / STATIONARY / MARKER LOST with velocity, FPS, and trail overlay.",
+      technologies: ["Python", "OpenCV ArUco", "Intel RealSense", "pyrealsense2"],
+      category: "Computer Vision / Robotics",
+      githubUrl: "https://github.com/Rohit11-OG/Robot-Marks",
+      features: [
+        "Real-time ArUco marker detection and trajectory tracking",
+        "Motion state classification with smoothed velocity estimation",
+        "On-screen overlay: FPS, marker ID, coordinates, motion trail",
+        "Built-in marker generator (single marker or printable sheet)"
+      ]
+    },
+    {
+      title: "PLY File Merge",
+      description: "Python toolkit for merging and transforming PLY point cloud files using Open3D. Manual rotate, auto-align, registration-based merging, and rotation transforms.",
+      technologies: ["Python", "Open3D", "NumPy", "Point Clouds"],
+      category: "3D / Point Cloud Processing",
+      githubUrl: "https://github.com/Rohit11-OG/PLY-File-Merge",
+      features: [
+        "Interactive manual rotation for point cloud alignment",
+        "Automatic align-and-merge across multiple PLY files",
+        "Point cloud registration-based merging pipeline",
+        "Configurable rotation transforms with merged output directory"
       ]
     }
   ];
