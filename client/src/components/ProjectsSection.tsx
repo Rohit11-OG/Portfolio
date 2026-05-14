@@ -27,6 +27,7 @@ export default function ProjectsSection() {
       technologies: ["Python", "Flask", "Groq API", "Llama 4 Scout Vision", "NLP"],
       category: "AI / NLP / Legal Tech",
       githubUrl: "https://github.com/Rohit11-OG/Civic-AI-Copilot",
+      liveUrl: "https://civic-ai-copilot.vercel.app/",
       features: [
         "Legal Document Analyzer with Llama 4 Scout 17B Vision (Hindi/English PDFs + images)",
         "3-tier risk classification (HIGH/MEDIUM/LOW) for legal severity",
