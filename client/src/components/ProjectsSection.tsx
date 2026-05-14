@@ -285,7 +285,7 @@ export default function ProjectsSection() {
                 <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-1">
+                <div className="flex flex-wrap gap-1 mb-3">
                   {project.technologies.slice(0, 3).map((tech, techIndex) => (
                     <Badge key={techIndex} variant="secondary" className="text-xs hover:bg-primary/20 hover:text-primary transition-colors duration-300">
                       {tech}
@@ -295,6 +295,43 @@ export default function ProjectsSection() {
                     <Badge variant="secondary" className="text-xs hover:bg-primary/20 hover:text-primary transition-colors duration-300">
                       +{project.technologies.length - 3}
                     </Badge>
+                  )}
+                </div>
+                <div className="flex gap-2 flex-wrap">
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="h-7 px-2 text-xs border-primary/30 hover:border-primary hover:bg-primary/10"
+                        data-testid={`button-grid-code-${index}`}
+                      >
+                        <Github className="h-3 w-3 mr-1" />
+                        Code
+                      </Button>
+                    </a>
+                  )}
+                  {(project as any).liveUrl && (
+                    <a
+                      href={(project as any).liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <Button
+                        size="sm"
+                        className="h-7 px-2 text-xs bg-gradient-to-r from-primary to-accent hover:opacity-90"
+                        data-testid={`button-grid-live-${index}`}
+                      >
+                        <ExternalLink className="h-3 w-3 mr-1" />
+                        Live
+                      </Button>
+                    </a>
                   )}
                 </div>
               </CardContent>
