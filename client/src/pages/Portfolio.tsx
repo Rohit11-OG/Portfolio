@@ -7,10 +7,12 @@ import SkillsSection from "@/components/SkillsSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import CursorGlow from "@/components/CursorGlow";
+import IntroSplash from "@/components/IntroSplash";
 
 export default function Portfolio() {
   return (
     <div className="min-h-screen">
+      <IntroSplash />
       <CursorGlow />
       <Navigation />
       <main>
