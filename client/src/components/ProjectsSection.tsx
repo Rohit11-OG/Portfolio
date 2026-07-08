@@ -115,7 +115,7 @@ export default function ProjectsSection() {
     <section id="projects" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 animate-fade-in-scale">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-bounce-in">
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Featured Projects
             </span>
@@ -130,7 +130,7 @@ export default function ProjectsSection() {
           <Card className="hover-elevate magnetic-button transition-all duration-700 border-primary/20 bg-gradient-to-br from-card to-card/80 backdrop-blur-sm hover:shadow-2xl hover:shadow-primary/10 animate-fade-in-scale" data-testid={`card-project-${currentProject}`}>
             <CardHeader className="text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5 opacity-50"></div>
-              <Badge variant="outline" className="w-fit mx-auto mb-2 relative z-10 bg-gradient-to-r from-primary/10 to-accent/10 border-primary/30">
+              <Badge variant="outline" className="w-fit mx-auto mb-2 relative z-10 bg-gradient-to-r from-primary/10 to-accent/10 border-primary/30 animate-pulse-glow">
                 {projects[currentProject].category}
               </Badge>
               <CardTitle className="text-2xl relative z-10 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent animate-slide-in-up">{projects[currentProject].title}</CardTitle>
@@ -146,7 +146,7 @@ export default function ProjectsSection() {
                   <ul className="grid md:grid-cols-2 gap-2 text-sm text-muted-foreground">
                     {projects[currentProject].features.map((feature, index) => (
                       <li key={index} className={`flex items-center space-x-2 animate-slide-in-right stagger-${Math.min(index + 3, 10)}`}>
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full shrink-0"></div>
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse"></div>
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -160,7 +160,7 @@ export default function ProjectsSection() {
                       <Badge 
                         key={index} 
                         variant="secondary" 
-                        className="hover:bg-accent/20 hover:text-accent transition-colors duration-300"
+                        className={`animate-flip-in-y magnetic-button hover:bg-accent/20 hover:text-accent transition-all duration-300 stagger-${Math.min(index + 1, 10)}`}
                         data-testid={`badge-project-tech-${tech.toLowerCase()}`}
                       >
                         {tech}
@@ -183,7 +183,7 @@ export default function ProjectsSection() {
                       className="magnetic-button button-ripple border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-300"
                       data-testid="button-view-code"
                     >
-                      <Github className="h-4 w-4 mr-2" />
+                      <Github className="h-4 w-4 mr-2 animate-pulse" />
                       View Code
                     </Button>
                   </a>
@@ -199,7 +199,7 @@ export default function ProjectsSection() {
                       className="magnetic-button button-ripple bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-300"
                       data-testid="button-live-demo"
                     >
-                      <ExternalLink className="h-4 w-4 mr-2" />
+                      <ExternalLink className="h-4 w-4 mr-2 animate-pulse" />
                       Live Demo
                     </Button>
                   </a>
@@ -212,7 +212,7 @@ export default function ProjectsSection() {
           <Button
             size="icon"
             variant="outline"
-            className="absolute left-4 top-1/2 -translate-y-1/2 magnetic-button hover:bg-primary/10 border-primary/30 hover:border-primary transition-all duration-300"
+            className="absolute left-4 top-1/2 -translate-y-1/2 magnetic-button hover:bg-primary/10 border-primary/30 hover:border-primary transition-all duration-300 animate-float"
             onClick={prevProject}
             data-testid="button-prev-project"
           >
@@ -221,7 +221,7 @@ export default function ProjectsSection() {
           <Button
             size="icon"
             variant="outline"
-            className="absolute right-4 top-1/2 -translate-y-1/2 magnetic-button hover:bg-primary/10 border-primary/30 hover:border-primary transition-all duration-300"
+            className="absolute right-4 top-1/2 -translate-y-1/2 magnetic-button hover:bg-primary/10 border-primary/30 hover:border-primary transition-all duration-300 animate-float"
             onClick={nextProject}
             data-testid="button-next-project"
           >
@@ -237,7 +237,7 @@ export default function ProjectsSection() {
               onClick={() => setCurrentProject(index)}
               className={`w-3 h-3 rounded-full transition-all duration-500 magnetic-button hover:scale-125 ${
                 index === currentProject 
-                  ? 'w-8 bg-gradient-to-r from-primary to-accent'
+                  ? 'bg-gradient-to-r from-primary to-accent animate-pulse-glow' 
                   : 'bg-muted-foreground/30 hover:bg-primary/50'
               }`}
               data-testid={`button-project-indicator-${index}`}
@@ -255,7 +255,7 @@ export default function ProjectsSection() {
             >
               <Card 
                 className={`hover-elevate cursor-pointer magnetic-button transition-all duration-500 border-primary/10 bg-gradient-to-br from-card to-card/80 backdrop-blur-sm hover:shadow-lg hover:shadow-primary/5 animate-zoom-in stagger-${Math.min(index + 3, 10)} relative overflow-hidden group-hover:scale-105 ${
-                  index === currentProject ? 'ring-2 ring-primary' : ''
+                  index === currentProject ? 'ring-2 ring-primary animate-pulse-glow' : ''
                 }`}
                 onClick={() => setCurrentProject(index)}
                 data-testid={`card-project-grid-${index}`}
@@ -265,7 +265,7 @@ export default function ProjectsSection() {
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'rotateY(5deg) rotateX(-3deg) translateZ(20px)';
-                  e.currentTarget.style.boxShadow = '0 25px 50px -12px hsl(45 85% 55% / 0.18)';
+                  e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(139, 92, 246, 0.25)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'rotateY(0deg) rotateX(0deg) translateZ(0px)';
@@ -345,10 +345,10 @@ export default function ProjectsSection() {
             <Button 
               variant="outline" 
               size="lg" 
-              className="magnetic-button button-ripple border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-300"
+              className="magnetic-button button-ripple border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-500 animate-glow"
               data-testid="button-view-all-projects"
             >
-              <Github className="h-4 w-4 mr-2" />
+              <Github className="h-4 w-4 mr-2 animate-pulse" />
               Explore All Projects on GitHub
             </Button>
           </a>

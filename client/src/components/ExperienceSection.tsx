@@ -71,12 +71,12 @@ export default function ExperienceSection() {
           {experiences.map((exp, index) => (
             <Card 
               key={index} 
-              className={`hover-elevate magnetic-button transition-all duration-700 border-accent/20 bg-gradient-to-br from-card via-card/90 to-card/80 backdrop-blur-sm hover:shadow-xl hover:shadow-accent/10 hover:border-accent/30 animate-slide-in-up stagger-${Math.min(index + 2, 10)} relative`}
+              className={`hover-elevate magnetic-button transition-all duration-700 border-accent/20 bg-gradient-to-br from-card via-card/90 to-card/80 backdrop-blur-sm hover:shadow-xl hover:shadow-accent/10 hover:border-accent/30 animate-flip-in-y stagger-${Math.min(index + 2, 10)} relative`}
               data-testid={`card-experience-${index}`}
             >
               <CardContent className="p-8 relative overflow-hidden">
                 {/* Timeline indicator */}
-                <div className="absolute -left-1 top-10 w-3 h-3 bg-gradient-to-r from-accent to-primary rounded-full border-2 border-background hidden md:block"></div>
+                <div className="absolute -left-1 top-10 w-3 h-3 bg-gradient-to-r from-accent to-primary rounded-full border-2 border-background hidden md:block animate-pulse-glow"></div>
                 
                 {/* Background pattern */}
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -92,7 +92,7 @@ export default function ExperienceSection() {
                       </div>
                       {exp.location && (
                         <div className="flex items-center space-x-2 animate-slide-in-left stagger-2">
-                          <MapPin className="h-4 w-4 text-muted-foreground" />
+                          <MapPin className="h-4 w-4 text-muted-foreground animate-pulse" />
                           <span className="text-sm text-muted-foreground">{exp.location}</span>
                         </div>
                       )}
@@ -106,7 +106,7 @@ export default function ExperienceSection() {
                         <div>
                           <h3 className="text-xl font-semibold bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">{exp.title}</h3>
                           <div className="flex items-center space-x-2 animate-slide-in-right stagger-3">
-                            <Building className="h-4 w-4 text-muted-foreground" />
+                            <Building className="h-4 w-4 text-muted-foreground animate-pulse" />
                             <p className="text-muted-foreground">{exp.organization}</p>
                           </div>
                         </div>
