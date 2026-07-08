@@ -748,6 +748,108 @@
     transform: translateZ(50px);
   }
 
+  /* ============ Scroll-triggered reveal ============
+   * Entrance animations are held (hidden, not running) until the parent
+   * section gets .section-visible from the IntersectionObserver in
+   * Portfolio.tsx. Removing the gate restarts the animation from frame 0,
+   * so each section "explodes" into view on scroll instead of animating
+   * unseen at page load. Infinite loops (float/pulse/glow) are untouched.
+   */
+  main > section:not(.section-visible) :is(
+    .animate-slide-in-up,
+    .animate-slide-in-left,
+    .animate-slide-in-right,
+    .animate-fade-in-scale,
+    .animate-zoom-in,
+    .animate-bounce-in,
+    .animate-rotate-in,
+    .animate-flip-in-y,
+    .animate-typewriter
+  ),
+  footer:not(.section-visible) :is(
+    .animate-slide-in-up,
+    .animate-fade-in-scale
+  ) {
+    animation: none;
+    opacity: 0;
+  }
+
+  /* ============ Custom cursor + glow trail ============ */
+  @media (hover: hover) and (pointer: fine) {
+    .custom-cursor-active,
+    .custom-cursor-active * {
+      cursor: none !important;
+    }
+  }
+
+  .cursor-dot,
+  .cursor-ring,
+  .cursor-ambient-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    opacity: 0;
+    will-change: transform;
+  }
+
+  .cursor-dot {
+    width: 8px;
+    height: 8px;
+    margin: -4px 0 0 -4px;
+    border-radius: 50%;
+    background: hsl(var(--primary));
+    box-shadow: 0 0 10px hsl(var(--primary) / 0.8);
+    z-index: 10000;
+    transition: opacity 0.25s ease;
+  }
+
+  .cursor-ring {
+    width: 36px;
+    height: 36px;
+    margin: -18px 0 0 -18px;
+    border-radius: 50%;
+    border: 1.5px solid hsl(var(--primary) / 0.55);
+    z-index: 9999;
+    transition:
+      width 0.25s ease,
+      height 0.25s ease,
+      margin 0.25s ease,
+      border-color 0.25s ease,
+      background-color 0.25s ease,
+      opacity 0.25s ease;
+  }
+
+  .cursor-ring.cursor-ring-hover {
+    width: 56px;
+    height: 56px;
+    margin: -28px 0 0 -28px;
+    border-color: hsl(var(--accent) / 0.8);
+    background-color: hsl(var(--primary) / 0.08);
+  }
+
+  /* Big soft spotlight that drifts behind the cursor */
+  .cursor-ambient-glow {
+    width: 480px;
+    height: 480px;
+    margin: -240px 0 0 -240px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      hsl(var(--primary) / 0.09) 0%,
+      hsl(var(--accent) / 0.05) 35%,
+      transparent 70%
+    );
+    z-index: 9998;
+    transition: opacity 0.4s ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cursor-ambient-glow {
+      display: none;
+    }
+  }
+
   /* CSS Particle Background Animation */
   @keyframes particleDrift {
     0%, 100% {
