@@ -3,9 +3,8 @@ import { useEffect, useState } from "react";
 const ROLES = [
   "AI Engineer",
   "Computer Vision Developer",
-  "Robotics Enthusiast",
   "Deep Learning Engineer",
-  "GenAI Builder",
+  "Agentic AI Builder",
 ];
 
 const TYPE_SPEED = 70;
