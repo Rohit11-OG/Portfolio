@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Download, Sparkles } from "lucide-react";
-import ThreeDElement from "./ThreeDElement";
-import ThreeBackground from "./ThreeBackground";
+import { lazy, Suspense } from "react";
 import TypewriterRoles from "./TypewriterRoles";
+
+const ThreeDElement = lazy(() => import("./ThreeDElement"));
+const ThreeBackground = lazy(() => import("./ThreeBackground"));
 
 export default function HeroSection() {
   const scrollToContact = () => {
@@ -22,7 +24,9 @@ export default function HeroSection() {
   return (
     <section className="min-h-screen relative overflow-hidden">
       {/* 3D Background */}
-      <ThreeBackground />
+      <Suspense fallback={null}>
+        <ThreeBackground />
+      </Suspense>
       
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/70 to-transparent pointer-events-none"></div>
@@ -129,7 +133,9 @@ export default function HeroSection() {
 
           {/* Right 3D Element */}
           <div className="relative h-96 lg:h-[500px] flex items-center justify-center">
-            <ThreeDElement />
+            <Suspense fallback={null}>
+              <ThreeDElement />
+            </Suspense>
           </div>
         </div>
       </div>
