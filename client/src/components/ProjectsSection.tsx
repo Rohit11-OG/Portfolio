@@ -22,6 +22,45 @@ export default function ProjectsSection() {
       ]
     },
     {
+      title: "CityPulse - Digital Twin",
+      description: "3D digital twin and live traffic simulator of a real city area built from OpenStreetMap data. FastAPI backend runs 10 Hz traffic physics streamed over Socket.IO to a Next.js + Three.js clay-render 3D frontend.",
+      technologies: ["Python", "FastAPI", "Socket.IO", "Next.js", "Three.js"],
+      category: "Simulation / 3D / Full-Stack",
+      githubUrl: "https://github.com/Rohit11-OG/CityPulse---Digital-Twin",
+      features: [
+        "10 Hz traffic physics: A* routing, car-following, traffic-light FSMs",
+        "Auto-downloads roads, buildings, parks from OpenStreetMap Overpass API",
+        "Real-time CO2 and fuel metrics with live vehicle streaming via Socket.IO",
+        "Optional real congestion (TomTom) and weather (OpenWeatherMap) integration"
+      ]
+    },
+    {
+      title: "Agentic SAM3 Auto-Annotation Lab",
+      description: "Multi-agent auto-annotation system powered by SAM 3. Drop a folder, agents detect, segment, QA-score, retry, and export YOLO/LabelMe-ready datasets — zero clicks. Includes LabelMe-style GUI editor.",
+      technologies: ["Python", "SAM 3", "Hugging Face", "CUDA", "Tkinter"],
+      category: "AI / Agents / Computer Vision",
+      githubUrl: "https://github.com/Rohit11-OG/Agentic-SAM3-Auto-Annotation-Lab",
+      features: [
+        "Multi-agent pipeline: SAM3Agent, CurationAgent, Coordinator with QA retry loop",
+        "Real SAM 3 (facebook/sam3) segmentation local + offline, fp16 on 6 GB VRAM",
+        "YOLO bbox + YOLO-seg polygon export, LabelMe JSON read/write",
+        "Built-in GUI with polygon/bbox editing, hotkeys, dark mode — 48 tests passing"
+      ]
+    },
+    {
+      title: "NEXTURA - AI Architectural Platform",
+      description: "AI architectural intelligence platform with 10 generation tools for photoreal rendering workflows. Next.js 16 + React 19 frontend, Prisma persistence, Stripe billing, optional GPU FastAPI inference.",
+      technologies: ["Next.js", "React 19", "Prisma", "FastAPI", "Stripe"],
+      category: "GenAI / Full-Stack / SaaS",
+      githubUrl: "https://github.com/Rohit11-OG/NEXTURA-AI-Architectural-Intelligence-Platform",
+      features: [
+        "10 architecture tools: Elevation, Interior, Sketch, Texture, Upscale, more",
+        "Next.js App Router APIs for auth, generation, credits, and billing",
+        "Prisma data layer: SQLite local, PostgreSQL-ready migration path",
+        "GPU FastAPI inference with safetensors, Docker stack, CI checks"
+      ]
+    },
+    {
       title: "CivicMate - AI Civic Assistant",
       description: "Flask backend with Groq + Llama Vision for legal document simplification. Multi-modal AI, Hindi/English support, privacy-first with zero data storage.",
       technologies: ["Python", "Flask", "Groq API", "Llama 4 Scout Vision", "NLP"],
