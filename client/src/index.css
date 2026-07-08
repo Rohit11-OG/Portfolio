@@ -748,32 +748,6 @@
     transform: translateZ(50px);
   }
 
-  /* ============ Scroll-triggered reveal ============
-   * Entrance animations are held (hidden, not running) until the parent
-   * section gets .section-visible from the IntersectionObserver in
-   * Portfolio.tsx. Removing the gate restarts the animation from frame 0,
-   * so each section "explodes" into view on scroll instead of animating
-   * unseen at page load. Infinite loops (float/pulse/glow) are untouched.
-   */
-  main > section:not(.section-visible) :is(
-    .animate-slide-in-up,
-    .animate-slide-in-left,
-    .animate-slide-in-right,
-    .animate-fade-in-scale,
-    .animate-zoom-in,
-    .animate-bounce-in,
-    .animate-rotate-in,
-    .animate-flip-in-y,
-    .animate-typewriter
-  ),
-  footer:not(.section-visible) :is(
-    .animate-slide-in-up,
-    .animate-fade-in-scale
-  ) {
-    animation: none;
-    opacity: 0;
-  }
-
   /* ============ Custom cursor + glow trail ============ */
   @media (hover: hover) and (pointer: fine) {
     .custom-cursor-active,
