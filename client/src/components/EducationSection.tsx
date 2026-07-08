@@ -87,12 +87,12 @@ export default function EducationSection() {
             >
               <CardContent className="p-8 relative">
                 {/* Timeline dot */}
-                <div className="absolute -left-2 top-8 w-4 h-4 bg-gradient-to-r from-primary to-accent rounded-full border-4 border-background hidden md:block animate-pulse-glow"></div>
+                <div className="absolute -left-2 top-8 w-4 h-4 bg-gradient-to-r from-primary to-accent rounded-full border-4 border-background hidden md:block"></div>
                 
                 <div className="grid md:grid-cols-4 gap-6">
                   <div className="md:col-span-1">
-                    <div className="flex items-center space-x-2 mb-2 animate-bounce-in stagger-1">
-                      <Calendar className="h-4 w-4 text-primary animate-pulse" />
+                    <div className="flex items-center space-x-2 mb-2 animate-slide-in-up stagger-1">
+                      <Calendar className="h-4 w-4 text-primary" />
                       <Badge variant="outline" className="font-semibold bg-gradient-to-r from-primary/10 to-accent/10 border-primary/30">
                         {edu.period}
                       </Badge>
@@ -110,8 +110,8 @@ export default function EducationSection() {
                       </div>
                       
                       {edu.achievement && (
-                        <div className="flex items-center space-x-2 mt-3 animate-bounce-in stagger-3">
-                          <Award className="h-4 w-4 text-primary animate-pulse" />
+                        <div className="flex items-center space-x-2 mt-3 animate-slide-in-up stagger-3">
+                          <Award className="h-4 w-4 text-primary" />
                           <Badge variant="default" className="bg-gradient-to-r from-primary to-accent text-primary-foreground border-0">
                             {edu.achievement}
                           </Badge>
@@ -126,7 +126,7 @@ export default function EducationSection() {
                         <Badge 
                           key={hIndex} 
                           variant="secondary" 
-                          className={`animate-flip-in-y magnetic-button hover:bg-primary/20 hover:text-primary transition-all duration-300 stagger-${Math.min(hIndex + 4, 10)}`}
+                          className={`magnetic-button hover:bg-primary/20 hover:text-primary transition-all duration-300 stagger-${Math.min(hIndex + 4, 10)}`}
                           data-testid={`badge-subject-${highlight.toLowerCase().replace(/\s+/g, '-')}`}
                         >
                           {highlight}

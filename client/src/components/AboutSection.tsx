@@ -111,7 +111,7 @@ export default function AboutSection() {
                     <Badge 
                       key={index} 
                       variant="secondary" 
-                      className={`animate-bounce-in magnetic-button hover:bg-primary/20 hover:text-primary transition-all duration-300 stagger-${Math.min(index + 1, 10)}`}
+                      className={`magnetic-button hover:bg-primary/20 hover:text-primary transition-all duration-300 stagger-${Math.min(index + 1, 10)}`}
                       data-testid={`badge-tool-${tool.toLowerCase()}`}
                     >
                       {tool}

@@ -31,7 +31,7 @@ export default function SkillsSection() {
     <section id="skills" className="py-24 px-6 bg-muted/30">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-flip-in-y">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 animate-fade-in-scale">
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Skills & Technologies
             </span>

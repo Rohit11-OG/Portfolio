@@ -146,10 +146,10 @@ export default function ContactSection() {
                 <Button 
                   type="submit" 
                   size="lg" 
-                  className="w-full magnetic-button button-ripple bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-500 shadow-lg hover:shadow-xl animate-glow animate-slide-in-up stagger-4" 
+                  className="w-full magnetic-button button-ripple bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-500 shadow-lg hover:shadow-xl animate-slide-in-up stagger-4" 
                   data-testid="button-send-message"
                 >
-                  <Send className="h-4 w-4 mr-2 animate-pulse" />
+                  <Send className="h-4 w-4 mr-2" />
                   Send Message
                 </Button>
               </form>
@@ -206,7 +206,7 @@ export default function ContactSection() {
                     <Badge 
                       key={index} 
                       variant="secondary" 
-                      className={`animate-bounce-in magnetic-button hover:bg-primary/20 hover:text-primary transition-all duration-300 stagger-${Math.min(index + 1, 10)}`}
+                      className={`magnetic-button hover:bg-primary/20 hover:text-primary transition-all duration-300 stagger-${Math.min(index + 1, 10)}`}
                       data-testid={`badge-interest-${interest.toLowerCase().replace(/\s+/g, '-')}`}
                     >
                       {interest}

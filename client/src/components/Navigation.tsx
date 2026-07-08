@@ -32,7 +32,7 @@ export default function Navigation({ className = "" }: NavigationProps) {
     <nav className={`fixed top-0 left-0 right-0 z-50 glass-nav ${className}`}>
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-pulse">RM.</div>
+          <div className="text-xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">RM.</div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -59,8 +59,8 @@ export default function Navigation({ className = "" }: NavigationProps) {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
               {theme === "light" ? 
-                <Moon className="h-4 w-4 relative z-10 transition-transform duration-300 group-hover:scale-110 animate-pulse" /> : 
-                <Sun className="h-4 w-4 relative z-10 transition-transform duration-300 group-hover:scale-110 animate-pulse" />
+                <Moon className="h-4 w-4 relative z-10 transition-transform duration-300 group-hover:scale-110" /> : 
+                <Sun className="h-4 w-4 relative z-10 transition-transform duration-300 group-hover:scale-110" />
               }
             </Button>
 
