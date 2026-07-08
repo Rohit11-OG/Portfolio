@@ -9,6 +9,19 @@ export default function ProjectsSection() {
 
   const projects = [
     {
+      title: "Robot Monitoring System",
+      description: "AI-powered real-time robot monitoring using YOLO11 motion tracking with Intel RealSense 3D depth perception. Classifies robot states at 95% accuracy and 30+ FPS for industrial robotics.",
+      technologies: ["Python", "YOLO11", "OpenCV", "Intel RealSense", "ArUco"],
+      category: "Computer Vision / Robotics",
+      githubUrl: "https://github.com/Rohit11-OG/Robot-Monetoring-System",
+      features: [
+        "Real-time robot state classification: MOVING, STATIONARY, ROBOT LOST",
+        "Intel RealSense 3D depth perception with ArUco marker detection",
+        "95% accuracy at 30+ FPS for industrial robotics applications",
+        "Intelligent alerts plus CSV logging for movement analytics"
+      ]
+    },
+    {
       title: "CivicMate - AI Civic Assistant",
       description: "Flask backend with Groq + Llama Vision for legal document simplification. Multi-modal AI, Hindi/English support, privacy-first with zero data storage.",
       technologies: ["Python", "Flask", "Groq API", "Llama 4 Scout Vision", "NLP"],
