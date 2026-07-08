@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Download, Sparkles } from "lucide-react";
 import ThreeDElement from "./ThreeDElement";
 import ThreeBackground from "./ThreeBackground";
+import TypewriterRoles from "./TypewriterRoles";
 
 export default function HeroSection() {
   const scrollToContact = () => {
@@ -44,7 +45,11 @@ export default function HeroSection() {
                   <br />
                   <span className="text-foreground animate-float">Mandwade</span>
                 </h1>
-                
+
+                <div className="animate-slide-in-up stagger-2">
+                  <TypewriterRoles />
+                </div>
+
                 <div className="space-y-3">
                   <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed animate-slide-in-up stagger-2">
                     AI Engineer specializing in

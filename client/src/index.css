@@ -748,6 +748,18 @@
     transform: translateZ(50px);
   }
 
+  /* Blinking caret for the hero typewriter roles */
+  @keyframes caretBlink {
+    0%, 45% { opacity: 1; }
+    50%, 95% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  .typewriter-caret {
+    animation: caretBlink 1s step-end infinite;
+    margin-left: 2px;
+  }
+
   /* ============ Custom cursor + glow trail ============ */
   @media (hover: hover) and (pointer: fine) {
     .custom-cursor-active,
